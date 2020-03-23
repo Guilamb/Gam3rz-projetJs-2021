@@ -18,7 +18,7 @@ fetch(
 );
 ```
 
-Le webservice `POST` `/api/v1/pizzas` s'attend à recevoir en paramètre une chaîne JSON de la forme suivante (*les données doivent être remplacées par celles saisies par l'utilisateur dans le formulaire*) :
+Le webservice `POST` `/api/v1/pizzas` s'attend à recevoir en paramètre une chaîne JSON de la forme suivante (*les données doivent évidemment être remplacées par celles saisies par l'utilisateur dans le formulaire*) :
 ```json
 {
 	"nom":"Savoyarde",
@@ -40,3 +40,7 @@ Si l'envoi s'est bien passé, le webservice retourne en entête un status `201 C
 Si tout s'est bien passé, vous pouvez recharger la page et constater que la pizza que vous avez saisie dans le formulaire s'est ajoutée en bas de la liste sur la HomePage :
 
 <a href="images/readme/ajax-post-resultat-liste.jpg"><img src="images/readme/ajax-post-resultat-liste.jpg" width="80%"></a>
+
+Pour finir, faites en sorte que lorsque le POST est terminé :
+- une alerte s'affiche indiquant que l'enregistrement a réussi
+- l'utilisateur retourne automatiquement sur la homepage avec la liste des pizzas à jour (sans qu'il ait à cliquer sur le bouton du menu et sans rechargement de page)

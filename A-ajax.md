@@ -9,7 +9,7 @@
 - [A.4. Appeler une API REST/JSON en GET](#a4-appeler-une-api-restjson-en-get)
 - [Étape suivante](#Étape-suivante)
 
-***Ce TP va permettre de connecter notre appli JS à une base de données distante par l'intermédiaire d'une API REST/JSON mettre en oeuvre les principales méthodes de sélection et de modification d'éléments de l'arbre DOM.***
+***Ce TP va permettre de connecter notre appli JS à une base de données distante par l'intermédiaire d'une API REST/JSON.***
 
 ## A.1. Installation
 ## A.1. Configuration du projet
@@ -186,4 +186,4 @@ Comme on peut le voir, **aucune version d'Internet Explorer n'est compatible ave
 
 
 ## Étape suivante
-Maintenant que l'on est capable de faire communiquer notre appli JS avec un serveur distant, nous allons voir dans le prochain exercice comment simplifier notre code à l'aide de jQuery : [B. jQuery](./B-jquery.md).)
+Maintenant que l'on est capable de faire communiquer notre appli JS avec un serveur distant, nous allons voir dans le prochain exercice comment simplifier notre code à l'aide de jQuery : [B. jQuery](./B-jquery.md).

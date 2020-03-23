@@ -8,10 +8,11 @@
 - [B.4. les événements avec jQuery](#b4-les-événements-avec-jquery)
 - [Étape suivante](#Étape-suivante)
 
-***Ce TP va permettre de connecter notre appli JS à une base de données distante par l'intermédiaire d'une API REST/JSON mettre en oeuvre les principales méthodes de sélection et de modification d'éléments de l'arbre DOM.***
+
+***jQuery doit permettre de simplifier notre code, voyons dans cette partie du TP comment l'utiliser***
 
 ## B.1. Installation de jQuery
-1. Installez la dernière version stable de jQuery avec la commande npm suivante :
+1. **Installez la dernière version stable de jQuery** avec la commande npm suivante :
 	```bash
 	npm install --save jquery
 	```

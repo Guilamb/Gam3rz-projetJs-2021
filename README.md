@@ -12,3 +12,4 @@ Pour plus de clarté, les instructions du TP se trouvent dans des fichiers disti
 
 1. [A. AJAX](A-ajax.md)
 2. [B. jQuery](B-jquery.md)
+3. [C. POST une pizza](./C-post.md)
