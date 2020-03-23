@@ -142,7 +142,7 @@ Comme on peut le voir, **aucune version d'Internet Explorer n'est compatible ave
 ## A.4. Appeler une API REST/JSON en GET
 **Maintenant que l'on est capables de récupérer une ressource externe en JS et d'en afficher le contenu, connectons notre application au serveur REST développé en cours de programmation répartie !!!**
 
-1. **Téléchargez le serveur REST/JSON sur https://framadrop.org/r/tsbNnFg62U#y+VA6krPIVLo8WdnRpjsWXUDgB+Mtd2HwQAfSWsgNZU= .**
+1. **Téléchargez le serveur REST/JSON** sur https://framadrop.org/r/tsbNnFg62U#y+VA6krPIVLo8WdnRpjsWXUDgB+Mtd2HwQAfSWsgNZU=
 2. **Lancez le serveur dans un terminal** :
 	```bash
 	java -jar pizzaland-jar-with-dependencies.jar
@@ -152,7 +152,7 @@ Comme on peut le voir, **aucune version d'Internet Explorer n'est compatible ave
 	<a href="images/readme/pizzaland-server-get-pizzas.jpg"><img src="images/readme/pizzaland-server-get-pizzas.jpg" width="80%"></a>
 
 4. Dans le fichier `main.js` commencez par :
-	- remplacez la ligne 10
+	- remplacer la ligne 10
 		```js
 		const homePage = new HomePage(data);
 		```
@@ -169,7 +169,7 @@ Comme on peut le voir, **aucune version d'Internet Explorer n'est compatible ave
 		```js
 		PageRenderer.renderPage(homePage); // affiche la liste des pizzas
 		```
-5. Toujours dans le fichier `main.js`, à la fin du fichier, lancez un appel AJAX vers l'URL http://localhost:8080/api/v1/pizzas. Puis, en vous inspirant de ce qui a été fait pour les news, créez une fonction `renderHome()` qui :
+5. Toujours dans le fichier `main.js`, à la fin du fichier, **lancez un appel AJAX vers l'URL http://localhost:8080/api/v1/pizzas.** Puis, en vous inspirant de ce qui a été fait pour les news, créez une fonction `renderHome()` qui :
 	- est appelée lorsque l'appel AJAX est terminé
 	- qui n'a qu'un seul paramètre nommé `data` (facultatif) qui correspond au tableau des pizzas retourné par l'API
 	- qui envoie le tableau de pizzas à la `homePage` et qui l'affiche grâce à la classe `PageRenderer` :
