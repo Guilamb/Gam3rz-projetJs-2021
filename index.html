@@ -8,49 +8,43 @@
 
 	<link rel="icon" href="images/icon.png" sizes="96x96">
 
-	<link rel="stylesheet" type="text/css" href="css/flatly-bootstrap.css" />
 	<link rel="stylesheet" type="text/css" href="css/main.css" />
+	<link rel="stylesheet" href="css/header.css">
+	<link rel="stylesheet" href="css/news.css">
+	<link rel="stylesheet" href="css/pizzaList.css">
+	<link rel="stylesheet" href="css/pizzaForm.css">
+	<link rel="stylesheet" href="css/footer.css">
 
 	<script src="build/main.bundle.js" defer></script>
 </head>
 <body>
-	<main id="appContainer">
-		<div class="container">
-			<header>
-				<nav class="navbar navbar-inverse navbar-fixed-top">
-					<div class="container">
-						<div class="navbar-header">
-							<a class="navbar-brand" href="#">
-								<img src="images/logo.svg" /> PizzaLand
-							</a>
-						</div>
-						<ul class="nav navbar-nav navbar-right">
-							<li><a href="#" class="pizzaListButton">La carte</a></li>
-							<li><a href="#" class="pizzaFormButton">Ajouter une Pizza</a></li>
-						</ul>
-					</div>
-				</nav>
-				<section class="newsContainer" style="display:none">
-					<article class="jumbotron">
-						<button class="closeButton"></button>
-						<h1>Welcome to PizzaLand !</h1>
-						<p>Bienvenue sur notre magnifique catalogue de pizzas !</p>
-					</article>
-				</section>
-			</header>
-			<section class="row marketing">
-				<div class="col-lg-12">
-					<header class="pageTitle"></header>
-					<section class="media-list pizzasContainer">
-					</section>
-				</div>
-			</section>
-		</div>
-	</main>
+	<header>
+		<nav>
+			<a href="#" class="logo">
+				<img src="images/logo.svg" />
+				<span>Pizza<em>land</em></span>
+			</a>
+			<ul class="mainMenu">
+				<li><a href="/" class="pizzaListLink">La carte</a></li>
+				<li><a href="/a-propos" class="aboutLink">À propos</a></li>
+				<li><a href="/ajouter-pizza" class="pizzaFormLink">Ajouter une pizza</a></li>
+			</ul>
+		</nav>
+	</header>
+	<section class="newsContainer" style="display:none">
+		<article>
+			<button class="closeButton"></button>
+			<h1>Bienvenue chez <strong>Pizza<em>Land</em></strong> !</h1>
+		</article>
+	</section>
+	<section class="pageContainer">
+		<header class="pageTitle"></header>
+		<div class="pageContent"></div>
+	</section>
 	<footer>
-			Free photos from <a href="https://unsplash.com/unsplash">Unsplash</a>
-			<br>
-			Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+		<div>Une (incroyable) création originale de <a href="http://uidlt.fr">Thomas Fritsch</a> pour l'<a href="https://www.iut-a.univ-lille.fr/">IUT A</a> de l'<a href="https://www.univ-lille.fr/">Université de Lille</a></div>
+		<div>Free photos from <a href="https://unsplash.com/unsplash">Unsplash</a></div>
+		<div>Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
 	</footer>
 </body>
 </html>

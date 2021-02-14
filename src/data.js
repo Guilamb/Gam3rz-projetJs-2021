@@ -1,25 +1,25 @@
 const data = [
 	{
-		nom: 'Regina',
+		name: 'Regina',
 		base: 'tomate',
-		prix_petite: 6.5,
-		prix_grande: 9.95,
+		price_small: 6.5,
+		price_large: 9.95,
 		image:
 			'https://images.unsplash.com/photo-1532246420286-127bcd803104?fit=crop&w=500&h=300',
 	},
 	{
-		nom: 'Napolitaine',
+		name: 'Napolitaine',
 		base: 'tomate',
-		prix_petite: 6.5,
-		prix_grande: 8.95,
+		price_small: 6.5,
+		price_large: 8.95,
 		image:
 			'https://images.unsplash.com/photo-1562707666-0ef112b353e0?&fit=crop&w=500&h=300',
 	},
 	{
-		nom: 'Spicy',
+		name: 'Spicy',
 		base: 'crème',
-		prix_petite: 5.5,
-		prix_grande: 8,
+		price_small: 5.5,
+		price_large: 8,
 		image:
 			'https://images.unsplash.com/photo-1458642849426-cfb724f15ef7?fit=crop&w=500&h=300',
 	},

@@ -1,18 +1,18 @@
 export default class Component {
-	tag;
+	tagName;
 	attribute;
 	children;
 
-	constructor(tag, attribute, children) {
-		this.tag = tag;
+	constructor(tagName, attribute, children) {
+		this.tagName = tagName;
 		this.attribute = attribute;
 		this.children = children;
 	}
 
 	render() {
-		let html = `<${this.tag} ${this.renderAttributes()}`;
+		let html = `<${this.tagName} ${this.renderAttributes()}`;
 		if (this.children) {
-			html += `>${this.renderChildren()}</${this.tag}>`;
+			html += `>${this.renderChildren()}</${this.tagName}>`;
 		} else {
 			html += ' />';
 		}

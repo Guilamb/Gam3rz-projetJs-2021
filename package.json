@@ -8,16 +8,17 @@
     "build": "webpack --mode=production",
     "watch": "webpack --mode=development --watch"
   },
-  "author": "thomas.fritsch@univ-lille.fr",
+  "author": "Thomas Fritsch <thomas.fritsch@univ-lille.fr> (https://gitlab.univ-lille.fr/thomas.fritsch)",
+  "homepage": "https://gitlab.univ-lille.fr/js",
   "license": "ISC",
   "devDependencies": {
-    "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.8.4",
-    "@babel/plugin-proposal-class-properties": "^7.8.3",
-    "@babel/preset-env": "^7.8.4",
-    "babel-loader": "^8.0.6",
-    "prettier": "^1.19.1",
-    "webpack": "^4.41.5",
-    "webpack-cli": "^3.3.10"
+    "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.10",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/preset-env": "^7.12.11",
+    "babel-loader": "^8.2.2",
+    "prettier": "^2.2.1",
+    "webpack": "^5.18.0",
+    "webpack-cli": "^4.4.0"
   }
 }
