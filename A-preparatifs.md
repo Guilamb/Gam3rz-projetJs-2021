@@ -75,7 +75,7 @@ Comme dans le précédent TP lancez un serveur HTTP et la compilation du projet 
 
 	Le résultat attendu est le suivant :
 
-	<img src="images/readme/pizzaland-00.png" >
+	<img src="images/readme/pizzaland-00.jpg" >
 
 	> _**NB : Si la page ne s'affiche pas correctement**, vérifiez que vous avez bien lancé le serveur http dans le dossier du projet, c'est à dire celui où se trouve le fichier `index.html`. Puis vérifiez dans la `Console` ou dans l'onglet `Sources` (Chrome) ou `Debugger` (Firefox) qu'l n'y a pas d'erreur JS lorsque la page se charge._
 
