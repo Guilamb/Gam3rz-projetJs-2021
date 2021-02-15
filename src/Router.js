@@ -4,26 +4,34 @@ export default class Router {
 	static #menuElement;
 
 	static routes = [];
-	// static currentRoute;
 
+	/**
+	 * Indique au Router la balise HTML contenant le menu de navigation
+	 * Écoute le clic sur chaque lien et déclenche la méthode navigate
+	 * @param element Élément HTML de la page qui contient le menu principal
+	 */
 	static set menuElement(element) {
 		this.#menuElement = element;
 		const links = element.querySelectorAll('a');
-		links.forEach(link => link.addEventListener('click', this.handleMenuClick));
+		links.forEach(link =>
+			link.addEventListener('click', event => {
+				event.preventDefault();
+				this.navigate(event.target.getAttribute('href'));
+			})
+		);
 	}
-	static handleMenuClick = event => {
-		event.preventDefault();
-		this.navigate(event.target.getAttribute('href'));
-	};
-
+	/**
+	 * Navigue dans l'application
+	 * Affiche la page correspondant à `path` dans le tableau `routes`
+	 * @param {String} path URL de la page courante
+	 * @param {Boolean} pushState active/désactive le pushState (ajout d'une entrée dans l'historique de navigation)
+	 */
 	static navigate(path, pushState = true) {
 		const route = this.routes.find(route => route.path === path);
 		if (route) {
-			// this.currentRoute?.page.unMount();
 			this.titleElement.innerHTML = `<h1>${route.title}</h1>`;
 			this.contentElement.innerHTML = route.page.render();
 			route.page.mount?.(this.contentElement);
-			// this.currentRoute = route;
 			// gestion menu (classe "active")
 			const menuLink = this.#menuElement.querySelector(
 					`a[href="${route.path}"]`
