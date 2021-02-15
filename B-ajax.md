@@ -122,7 +122,7 @@ Pour rappel, le support navigateur de l'API fetch est plutôt bon :
 ## B.3. Appeler une API REST/JSON en GET
 **Maintenant que l'on est capables de récupérer une ressource externe en JS et d'en afficher le contenu, connectons notre application au serveur REST développé en cours de programmation répartie !!!**
 
-1. **Téléchargez le serveur REST/JSON** sur https://filesender.renater.fr/?s=download&token=002059e4-f26f-4cf8-ad48-a8da6384d3d4
+1. **Téléchargez le serveur REST/JSON** sur https://filesender.renater.fr/?s=download&token=247b86f8-cc86-4ff0-a223-8ecd0882f170
 2. **Lancez le serveur dans un terminal** :
 	```bash
 	java -jar pizzaland-jar-with-dependencies.jar
@@ -130,6 +130,8 @@ Pour rappel, le support navigateur de l'API fetch est plutôt bon :
 3. **Vérifiez que le serveur fonctionne correctement en ouvrant dans votre navigateur la page http://localhost:8080/api/v1/pizzas**
 
 	<img src="images/readme/pizzaland-server-get-pizzas.png" >
+
+	> _**NB :** en cas d'erreur de chargement, essayez de recharger la page dans votre navigateur (<kbd>CTRL</kbd>+<kbd>SHIFT</kbd>+<kbd>R</kbd>) une deuxième fois, apparemment sur certains postes ça débloque l'API..._ ¯\\\_(ツ)\_/¯
 
 1. **Supprimez toute trace de nos données en "dur" :**
 	- supprimez le fichier `data.js` et son import dans le `main.js`
