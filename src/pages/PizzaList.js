@@ -15,11 +15,12 @@ export default class PizzaList extends Page {
 	}
 
 	mount(element) {
-		element = fetch('http://localhost:8080/api/v1/pizzas')
+		super.mount(element);
+		fetch('http://localhost:8080/api/v1/pizzas')
 			.then(response => response.text())
-			.then(responseText => (this.pizzas = JSON.parse(responseText)));
-
-		/*super.mount(element);
-		this.element.render();*/
+			.then(responseText => {
+				this.pizzas = JSON.parse(responseText);
+				this.element.innerHTML = this.render();
+			});
 	}
 }
