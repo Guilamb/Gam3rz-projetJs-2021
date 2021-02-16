@@ -1,3 +1,4 @@
+import Router from '../Router.js';
 import Page from './Page.js';
 
 export default class AddPizzaPage extends Page {
@@ -20,6 +21,20 @@ export default class AddPizzaPage extends Page {
 			this.submit();
 		});
 	}
+	ajoutPizza(name) {
+		console.log('ok');
+		const pizza = {
+			name: name,
+		};
+		fetch('http://localhost:8080/api/v1/pizzas', {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify(pizza),
+		}).then(response => {
+			alert(`La pizza ${name} a été ajoutée !`);
+			Router.navigate('/');
+		});
+	}
 
 	submit() {
 		// D.4. La validation de la saisie
@@ -29,7 +44,8 @@ export default class AddPizzaPage extends Page {
 			alert('Erreur : le champ "Nom" est obligatoire');
 			return;
 		}
-		alert(`La pizza ${name} a été ajoutée !`);
+		this.ajoutPizza(name);
+
 		nameInput.value = '';
 	}
 }
