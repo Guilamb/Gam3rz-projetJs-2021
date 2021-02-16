@@ -1,5 +1,4 @@
 import Router from './Router';
-import data from './data';
 import PizzaList from './pages/PizzaList';
 import PizzaForm from './pages/PizzaForm';
 import Component from './components/Component';
@@ -18,8 +17,6 @@ Router.routes = [
 ];
 
 // Router.navigate('/'); // affiche une page vide
-pizzaList.pizzas = data;
-// Router.navigate('/'); // affiche la liste des pizzas
 
 // B.1. Sélectionner des éléments
 // console.log(document.querySelector('.logo img'));
@@ -40,15 +37,20 @@ document.querySelector(
 // );
 
 // C.2. Navigation en JS : afficher/masquer un élément
+/*
 const newsContainer = document.querySelector('.newsContainer'),
 	closeButton = newsContainer.querySelector('.closeButton');
+	*/
 // affichage du bandeau de news
+/*
 newsContainer.style.display = '';
+*/
 // gestion du bouton fermer
+/*
 closeButton.addEventListener('click', event => {
 	event.preventDefault();
 	newsContainer.style.display = 'none';
-});
+});*/
 
 // E.3. Deeplinking
 // détection des boutons précédent/suivant du navigateur :
@@ -57,3 +59,17 @@ window.onpopstate = () => Router.navigate(document.location.pathname, false);
 // affichage de la page initiale :
 // même traitement que lors de l'appui sur les boutons précédent/suivant
 window.onpopstate();
+
+function displayNews(html) {
+	// 1. injectez le contenu du fichier dans la section .newsContainer
+
+	const newsCont = document.querySelector('.newsContainer');
+	newsCont.innerHTML = html;
+
+	// 2. affichez la balise .newsContainer
+	newsCont.style.display = '';
+}
+
+fetch('./news.html')
+	.then(response => response.text())
+	.then(displayNews);
