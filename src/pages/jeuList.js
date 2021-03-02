@@ -16,13 +16,15 @@ export default class jeuList extends Page {
 
 	mount(element) {
 		super.mount(element);
-		fetch('https://api.rawg.io/api/games')
-			.then(response => response.json())
-			.then(data => {
-				this.jeux = data.results;
-			})
-			.then(() => {
-				this.element.innerHTML = this.render();
-			});
+		for (let index = 1; index < 10; index++) {
+			fetch(`https://api.rawg.io/api/games?page=${index}`)
+				.then(response => response.json())
+				.then(data => {
+					this.jeux = data.results;
+				})
+				.then(() => {
+					this.element.innerHTML += this.render();
+				});
+		}
 	}
 }
