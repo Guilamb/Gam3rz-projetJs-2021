@@ -29,7 +29,7 @@ export default class Router {
 	static navigate(path, pushState = true) {
 		const route = this.routes.find(route => route.path === path);
 		if (route) {
-			this.titleElement.innerHTML = `<h1>${route.title}</h1>`;
+			// this.titleElement.innerHTML = `<h1>${route.title}</h1>`;
 			this.contentElement.innerHTML = route.page.render();
 			route.page.mount?.(this.contentElement);
 			// gestion menu (classe "active")
