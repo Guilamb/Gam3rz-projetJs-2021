@@ -1,7 +1,7 @@
 import Router from './Router';
-import jeuList from './pages/jeuList';
+import JeuList from './pages/jeuList';
 
-const jeuList = new jeuList([]);
+const jeuList = new JeuList([]);
 
 Router.titleElement = document.querySelector('.pageTitle');
 Router.contentElement = document.querySelector('.pageContent');
