@@ -1,6 +1,5 @@
 import Router from './Router';
-import PizzaList from './pages/PizzaList';
-import PizzaForm from './pages/PizzaForm';
+import jeuList from './pages/jeuList';
 import Component from './components/Component';
 
 const pizzaList = new PizzaList([]),

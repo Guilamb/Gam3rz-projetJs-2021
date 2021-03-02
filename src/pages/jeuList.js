@@ -1,8 +1,8 @@
-import Page from '../../routes/Page';
-import jeuThumbnail from './jeuThumbnail';
+import Page from './Page';
+import jeuThumbnail from '../components/jeuThumbnail';
 
 export default class jeuList extends Page {
-    #jeux;
+	#jeux;
 
 	constructor(jeux) {
 		super('jeuList'); // on passe juste la classe CSS souhaitée
