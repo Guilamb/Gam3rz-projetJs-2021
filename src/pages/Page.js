@@ -3,8 +3,8 @@ import Component from '../components/Component';
 export default class Page extends Component {
 	element;
 
-	constructor(className, children) {
-		super('section', { name: 'class', value: className }, children);
+	constructor(children) {
+		super('div', { name: 'class', value: 'row align-items-start' }, children);
 	}
 	mount(element) {
 		this.element = element;
