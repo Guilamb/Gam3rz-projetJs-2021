@@ -2,7 +2,7 @@ import Component from './Component';
 import Img from './Img';
 
 export default class jeuThumbnail extends Component {
-	constructor({ name, background_image }) {
+	constructor({ name, background_image, metacritic }) {
 		super('div', { name: 'class', value: 'col' }, [
 			new Component('div', { name: 'class', value: 'card' }, [
 				new Img(background_image),
@@ -14,6 +14,17 @@ export default class jeuThumbnail extends Component {
 						'Add to favorite'
 					),
 				]),
+				new Component(
+					'ul',
+					{ name: 'class', value: 'list-group list-group-flush' },
+					[
+						new Component(
+							'li',
+							{ name: 'class', value: 'list-group-item' },
+							'note : ' + metacritic
+						),
+					]
+				),
 			]),
 		]);
 	}
