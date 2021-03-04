@@ -3,7 +3,7 @@ import JeuList from './pages/jeuList';
 
 const jeuList = new JeuList([]);
 
-Router.contentElement = document.querySelector('.cards');
+Router.contentElement = document.querySelector('.pageContent');
 Router.menuElement = document.querySelector('.mainMenu');
 Router.routes = [{ path: '/', page: jeuList, title: 'Instant G@M3RZ' }];
 

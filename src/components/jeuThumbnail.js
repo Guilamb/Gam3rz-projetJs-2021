@@ -3,30 +3,53 @@ import Img from './Img';
 
 export default class jeuThumbnail extends Component {
 	constructor({ name, background_image, metacritic }) {
-		super('div', { name: 'class', value: 'col' }, [
-			new Component('div', { name: 'class', value: 'card' }, [
-				new Img(background_image),
-				new Component('div', { name: 'class', value: 'card-body' }, [
-					new Component('h5', { name: 'class', value: 'card-title' }, name),
-					new Component(
-						'a',
-						{ name: 'class', value: 'btn btn-primary' },
-						'Add to favorite'
-					),
-				]),
+		super(
+			'div',
+			[{ name: 'class', value: 'col' }],
+			[
 				new Component(
-					'ul',
-					{ name: 'class', value: 'list-group list-group-flush' },
+					'div',
+					[{ name: 'class', value: 'card' }],
 					[
+						new Img(background_image),
 						new Component(
-							'li',
-							{ name: 'class', value: 'list-group-item' },
-							'note : ' + metacritic
+							'div',
+							[{ name: 'class', value: 'card-body' }],
+							[
+								new Component(
+									'h6',
+									[{ name: 'class', value: 'card-title' }],
+									name
+								),
+								new Component(
+									'img',
+									[
+										{ name: 'class', value: 'btn btn-primary' },
+										{
+											name: 'src',
+											value:
+												'https://ethikonsulting.com/wp-content/uploads/2015/02/Places-favorites-icon.png',
+										},
+									],
+									null
+								),
+								new Component(
+									'ul',
+									[{ name: 'class', value: 'list-group list-group-flush' }],
+									[
+										new Component(
+											'li',
+											[{ name: 'class', value: 'list-group-item' }],
+											`note : ${metacritic}`
+										),
+									]
+								),
+							]
 						),
 					]
 				),
-			]),
-		]);
+			]
+		);
 	}
 }
 

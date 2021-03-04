@@ -20,10 +20,13 @@ export default class Component {
 	}
 
 	renderAttributes() {
-		if (this.attribute) {
-			return `${this.attribute.name}="${this.attribute.value}"`;
+		let attributes = '';
+		if (this.attribute instanceof Array) {
+			for (let i = 0; i < this.attribute.length; i++) {
+				attributes += `${this.attribute[i].name}="${this.attribute[i].value}"`;
+			}
 		}
-		return '';
+		return attributes;
 	}
 
 	renderChildren() {
