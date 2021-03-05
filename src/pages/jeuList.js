@@ -24,6 +24,22 @@ export default class jeuList extends Page {
 				})
 				.then(() => {
 					this.element.innerHTML += this.render();
+				})
+				.then(() => {
+					document.querySelectorAll('.card-body > button').forEach(el => {
+						el.addEventListener('click', function (event) {
+							event.preventDefault();
+							const img = el.querySelector('.fav');
+
+							if (!img.classList.contains('.click')) {
+								img.setAttribute('src', './images/star-fav-clicked.png');
+								img.classList.add('.click');
+							} else {
+								img.setAttribute('src', './images/star-fav.png');
+								img.classList.remove('.click');
+							}
+						});
+					});
 				});
 		}
 	}

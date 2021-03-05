@@ -5,7 +5,7 @@ export default class jeuThumbnail extends Component {
 	constructor({ name, background_image, metacritic }) {
 		super(
 			'div',
-			[{ name: 'class', value: 'col' }],
+			[{ name: 'class', value: 'col-3' }],
 			[
 				new Component(
 					'div',
@@ -22,16 +22,21 @@ export default class jeuThumbnail extends Component {
 									name
 								),
 								new Component(
-									'img',
+									'button',
+									[{ name: 'type', value: 'button' }],
 									[
-										{ name: 'class', value: 'btn btn-primary' },
-										{
-											name: 'src',
-											value:
-												'https://ethikonsulting.com/wp-content/uploads/2015/02/Places-favorites-icon.png',
-										},
-									],
-									null
+										new Component(
+											'img',
+											[
+												{ name: 'class', value: 'fav' },
+												{
+													name: 'src',
+													value: './images/star-fav.png',
+												},
+											],
+											null
+										),
+									]
 								),
 								new Component(
 									'ul',
@@ -52,33 +57,3 @@ export default class jeuThumbnail extends Component {
 		);
 	}
 }
-
-/* <figure class="card">
-
-<img src="https://mrreiha.keybase.pub/codepen/hover-fx/1.jpg" />
-
-<figcaption>Dota 2</figcaption>
-
-</figure> */
-
-// super(
-// 	'article',
-// 	[{ name: 'class', value: 'jeuThumbnail' }],
-// 	[
-// 		new Component(
-// 			'a',
-// 			[
-// 				{ name: 'href', value: background_image },
-// 				{ name: 'class', value: 'test' },
-// 			],
-// 			[
-// 				new Component(
-// 					'img',
-// 					[{ name: 'src', value: background_image }],
-// 					null
-// 				),
-// 				new Component('section', null, [new Component('h4', null, name)]),
-// 			]
-// 		),
-// 	]
-// );

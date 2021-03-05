@@ -4,7 +4,7 @@ h1, h3{
 
 .card {
     width: 300px;
-    height: 350px;
+    height: 300px;
     background: linear-gradient(#fff, #00ff00);
 }
 
@@ -27,15 +27,40 @@ img {
     bottom: 10px;
 }
 
-.card-body > h6 {
+.card-title {
+    width: 300px;
+    height: 40px;
     position: absolute;
-    bottom: 120px;
+    bottom: 50px;
 }
 
-.card-body > .btn {
+.fav {
     position: absolute;
     top: 5px;
     right: 5px;
-    width: 50px;
-    height: 50px;
+    width: 25px;
+    height: 25px;
+    visibility: visible;
+}
+
+.card-body > button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    visibility: hidden;
+}
+
+.card-body > ul {
+    width: 301px;
+    position: absolute;
+    left: -1px;
+    bottom: 0px;
+}
+
+.card-body > ul > li {
+    background: linear-gradient(#0f0, #fff);
+}
+
+.list-group-item {
+    background-color: none;
 }
