@@ -5,16 +5,27 @@ export default class jeuThumbnail extends Component {
 	constructor({ name, background_image, metacritic }) {
 		super(
 			'div',
-			[{ name: 'class', value: 'col-3' }],
+			[{ name: 'class', value: 'col-3 flip-card' }],
 			[
 				new Component(
 					'div',
-					[{ name: 'class', value: 'card' }],
+					[{ name: 'class', value: 'flip-card-inner' }],
 					[
-						new Img(background_image),
 						new Component(
 							'div',
-							[{ name: 'class', value: 'card-body' }],
+							[{ name: 'class', value: 'flip-card-front' }],
+							[
+								new Img(background_image),
+								new Component('img', [
+									{ name: 'class', value: 'fav' },
+									{ name: 'style', value: 'visibility: hidden' },
+								]),
+							]
+						),
+
+						new Component(
+							'div',
+							[{ name: 'class', value: 'flip-card-back' }],
 							[
 								new Component(
 									'h6',
@@ -25,6 +36,7 @@ export default class jeuThumbnail extends Component {
 									'button',
 									[{ name: 'type', value: 'button' }],
 									[
+										'....',
 										new Component(
 											'img',
 											[
