@@ -51,13 +51,27 @@ export default class jeuThumbnail extends Component {
 									]
 								),
 								new Component(
-									'ul',
-									[{ name: 'class', value: 'list-group list-group-flush' }],
+									'section',
+									[
+										{ name: 'class', value: 'progress-circle' },
+										{ name: 'value', value: '30' },
+									],
 									[
 										new Component(
-											'li',
-											[{ name: 'class', value: 'list-group-item' }],
-											`note : ${metacritic}`
+											'div',
+											[{ name: 'class', value: 'progress-masque' }],
+											[
+												new Component(
+													'div',
+													[{ name: 'class', value: 'progress-barre' }],
+													[null]
+												),
+												new Component(
+													'div',
+													[{ name: 'class', value: 'progress-sup50' }],
+													null
+												),
+											]
 										),
 									]
 								),

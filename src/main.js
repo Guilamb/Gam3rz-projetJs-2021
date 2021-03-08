@@ -11,3 +11,12 @@ window.onpopstate = () => Router.navigate(document.location.pathname, false);
 // affichage de la page initiale :
 // même traitement que lors de l'appui sur les boutons précédent/suivant
 window.onpopstate();
+
+document.addEventListener('DOMContentLoaded', function () {
+	let barres = document.querySelectorAll('.progress-circle');
+	let i,
+		nb = barres.length;
+	for (i = 0; i < nb; i++) {
+		initJauge(barres[i]);
+	}
+});

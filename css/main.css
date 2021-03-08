@@ -2,6 +2,10 @@ h1, h3{
     text-align: center;
 }
 
+.progress-circle {
+  color: red;
+}
+
 .row {
     --bs-gutter-x: none;
 }

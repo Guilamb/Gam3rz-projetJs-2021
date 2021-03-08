@@ -58,3 +58,21 @@ export default class jeuList extends Page {
 		}
 	}
 }
+
+function initCircle(elem) {
+	let barre;
+	let angle;
+	let valeur;
+
+	barre = elem.querySelector('.progress-barre');
+
+	valeur = elem.getAttribute('value');
+	valeur = valeur ? valeur * 1 : 0;
+	elem.setAttribute('value', valeur.toFixed(1));
+
+	angle = (360 * valeur) / 100;
+
+	if (barre) {
+		barre.style.transform = 'rotate(' + angle + 'deg)';
+	}
+}
