@@ -1,5 +1,7 @@
 import Router from './Router';
 import JeuList from './pages/jeuList';
+import Page from './pages/Page';
+import Component from './components/Component';
 
 const jeuList = new JeuList([]);
 jeuList.show(`https://api.rawg.io/api/games?page_size=35`);
