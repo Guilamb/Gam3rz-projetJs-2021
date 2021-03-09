@@ -2,14 +2,17 @@ import Component from './Component';
 import Img from './Img';
 
 export default class jeuThumbnail extends Component {
-	constructor({ name, background_image, metacritic }) {
+	constructor({ slug, name, background_image, metacritic }) {
 		super(
 			'div',
 			[{ name: 'class', value: 'col-3 flip-card' }],
 			[
 				new Component(
-					'div',
-					[{ name: 'class', value: 'flip-card-inner' }],
+					'a',
+					[
+						{ name: 'class', value: 'flip-card-inner' },
+						{ name: 'href', value: `/detail/${slug}` },
+					],
 					[
 						new Component(
 							'div',
