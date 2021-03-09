@@ -1,12 +1,15 @@
 import Router from './Router';
 import JeuList from './pages/jeuList';
-import Detail from './pages/detail';
+//import Detail from './pages/detail';
 import favoris from './pages/favoris';
+import Lequipe from './pages/Lequipe';
 
 const jeuList = new JeuList([]);
 jeuList.show(`https://api.rawg.io/api/games?page_size=40`);
 
-const detail = new Detail([]);
+const lequipe = new Lequipe();
+
+//const detail = new Detail([]);
 
 const favo = new favoris(jeuList.jeux);
 
@@ -14,7 +17,7 @@ Router.contentElement = document.querySelector('.pageContent');
 Router.menuElement = document.querySelector('.mainMenu');
 Router.routes = [
 	{ path: '/', page: jeuList, title: 'Instant G@M3RZ' },
-	{ path: '/detail/', page: detail, title: 'Instant G@M3RZ' },
+	{ path: 'lequipe.fr', page: lequipe, title: 'Instant G@M3RZ' },
 ];
 
 const form = document.querySelector('.d-flex');
