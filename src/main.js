@@ -1,11 +1,14 @@
 import Router from './Router';
 import JeuList from './pages/jeuList';
 import Detail from './pages/detail';
+import favoris from './pages/favoris';
 
 const jeuList = new JeuList([]);
 jeuList.show(`https://api.rawg.io/api/games?page_size=40`);
 
 const detail = new Detail([]);
+
+const favo = new favoris(jeuList.jeux);
 
 Router.contentElement = document.querySelector('.pageContent');
 Router.menuElement = document.querySelector('.mainMenu');
@@ -21,13 +24,12 @@ form.addEventListener('submit', event => {
 	jeuList.show(`https://api.rawg.io/api/games?search=${research}`);
 });
 
-const img = document.querySelectorAll('.flip-card-inner');
-img.forEach(el =>
-	el.addEventListener('click', event => {
+const favor = document
+	.querySelector('.fav')
+	.addEventListener('click', event => {
 		event.preventDefault();
-		detail.show(`https://api/rawg.io/api/games/grand-theft-auto-v`);
-	})
-);
+		favo.show();
+	});
 
 window.onpopstate = () => Router.navigate(document.location.pathname, false);
 // affichage de la page initiale :

@@ -1,6 +1,5 @@
 import Page from './Page';
 import jeuThumbnail from '../components/jeuThumbnail';
-import Router from '../Router';
 
 export default class jeuList extends Page {
 	#jeux;
@@ -32,9 +31,9 @@ export default class jeuList extends Page {
 							event.preventDefault();
 							const img = el.querySelector('.flip-card-back .fav');
 
-							if (!img.classList.contains('.click')) {
+							if (!img.classList.contains('click')) {
 								img.setAttribute('src', './images/star-fav-clicked.png');
-								img.classList.add('.click');
+								img.classList.add('click');
 								el.querySelector('.flip-card-front > .fav').setAttribute(
 									'src',
 									'./images/star-fav-clicked.png'
@@ -44,7 +43,7 @@ export default class jeuList extends Page {
 								);
 							} else {
 								img.setAttribute('src', './images/star-fav.png');
-								img.classList.remove('.click');
+								img.classList.remove('click');
 								el.querySelector('.flip-card-front > .fav').setAttribute(
 									'style',
 									'visibility:hidden;'
