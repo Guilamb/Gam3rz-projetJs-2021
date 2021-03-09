@@ -1,10 +1,11 @@
 import Router from './Router';
 import JeuList from './pages/jeuList';
-import Page from './pages/Page';
-import Component from './components/Component';
+import favoris from './pages/favoris';
 
 const jeuList = new JeuList([]);
 jeuList.show(`https://api.rawg.io/api/games?page_size=35`);
+
+const favo = new favoris(jeuList.jeux);
 
 Router.contentElement = document.querySelector('.pageContent');
 Router.menuElement = document.querySelector('.mainMenu');
@@ -16,6 +17,13 @@ form.addEventListener('submit', event => {
 	const research = form.querySelector('input[name="search"]')?.value;
 	jeuList.show(`https://api.rawg.io/api/games?search=${research}`);
 });
+
+const favor = document
+	.querySelector('.fav')
+	.addEventListener('click', event => {
+		event.preventDefault();
+		favo.show();
+	});
 
 window.onpopstate = () => Router.navigate(document.location.pathname, false);
 // affichage de la page initiale :
