@@ -1,5 +1,9 @@
 import Page from './Page';
 import jeuThumbnail from '../components/jeuThumbnail';
+import Router from '../Router';
+import Details from './details';
+
+const details = new Details();
 
 export default class jeuList extends Page {
 	#jeux;
@@ -51,6 +55,23 @@ export default class jeuList extends Page {
 							}
 						}
 					);
+				});
+			})
+			.then(() => {
+				document.querySelectorAll('.wrapper a').forEach(link => {
+					Router.routes.push({
+						path: `${link.getAttribute('href')}`,
+						page: details,
+						title: 'Instant G@M3RZ',
+					});
+				});
+			})
+			.then(() => {
+				document.querySelectorAll('.wrapper a').forEach(link => {
+					link.addEventListener('click', event => {
+						event.preventDefault();
+						Router.navigate(event.target.getAttribute('href'));
+					});
 				});
 			});
 	}

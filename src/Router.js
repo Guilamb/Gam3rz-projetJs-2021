@@ -32,13 +32,7 @@ export default class Router {
 			// this.titleElement.innerHTML = `<h1>${route.title}</h1>`;
 			this.contentElement.innerHTML = route.page.render();
 			route.page.mount?.(this.contentElement);
-			// gestion menu (classe "active")
-			const menuLink = this.#menuElement.querySelector(
-					`a[href="${route.path}"]`
-				),
-				prevActiveLink = this.#menuElement.querySelector('a.active');
-			prevActiveLink?.classList.remove('active');
-			menuLink?.classList.add('active');
+
 			if (pushState) {
 				window.history.pushState(null, null, path);
 			}

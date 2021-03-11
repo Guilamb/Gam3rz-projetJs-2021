@@ -1,6 +1,5 @@
 import Router from './Router';
 import JeuList from './pages/jeuList';
-//import Detail from './pages/detail';
 import favoris from './pages/favoris';
 import Lequipe from './pages/lequipe';
 
@@ -8,8 +7,6 @@ const jeuList = new JeuList([]);
 jeuList.show(`https://api.rawg.io/api/games?page_size=40`);
 
 const lequipe = new Lequipe();
-
-//const detail = new Detail([]);
 
 const favo = new favoris(jeuList.jeux);
 
