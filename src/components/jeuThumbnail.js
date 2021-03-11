@@ -11,7 +11,7 @@ export default class jeuThumbnail extends Component {
 					'a',
 					[
 						{ name: 'class', value: 'flip-card-inner' },
-						{ name: 'href', value: `/detail/${slug}` },
+						{ name: 'href', value: `/detail-${slug}` },
 					],
 					[
 						new Component(
