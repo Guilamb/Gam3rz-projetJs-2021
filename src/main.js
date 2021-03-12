@@ -2,9 +2,13 @@ import Router from './Router';
 import JeuList from './pages/jeuList';
 import favoris from './pages/favoris';
 import Lequipe from './pages/lequipe';
+import Requete from './components/request';
 
 const jeuList = new JeuList([]);
-jeuList.show(`https://api.rawg.io/api/games?page_size=40`);
+Requete.initFetch(
+	jeuList,
+	`https://api.rawg.io/api/games?page_size=20&dates=2020-01-01,2021-12-31&metacritic=50,100`
+);
 
 const lequipe = new Lequipe();
 
@@ -22,7 +26,9 @@ const form = document.querySelector('.d-flex');
 form.addEventListener('submit', event => {
 	event.preventDefault();
 	const research = form.querySelector('input[name="search"]')?.value;
-	jeuList.show(`https://api.rawg.io/api/games?search=${research}`);
+	jeuList.show(
+		`https://api.rawg.io/api/games?search=${research}&metacritic=1,100`
+	);
 });
 
 const favor = document
@@ -31,6 +37,14 @@ const favor = document
 		event.preventDefault();
 		favo.show();
 	});
+
+document.querySelector('.moreGames').addEventListener('click', event => {
+	event.preventDefault();
+	Requete.addNewGames(
+		jeuList,
+		`https://api.rawg.io/api/games?page=${Requete.numPage}&page_size=20&dates=2020-01-01,2021-12-31&metacritic=50,100`
+	);
+});
 
 window.onpopstate = () => Router.navigate(document.location.pathname, false);
 // affichage de la page initiale :
