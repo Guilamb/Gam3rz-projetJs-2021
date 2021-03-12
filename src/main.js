@@ -15,6 +15,7 @@ Router.menuElement = document.querySelector('.mainMenu');
 Router.routes = [
 	{ path: '/', page: jeuList, title: 'Instant G@M3RZ' },
 	{ path: 'lequipe.fr', page: lequipe, title: 'Instant G@M3RZ' },
+	{ path: 'details-:id',page: details, title: 'Instant G@M3RZ'},
 ];
 
 const form = document.querySelector('.d-flex');
