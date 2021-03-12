@@ -4,7 +4,9 @@ import favoris from './pages/favoris';
 import Lequipe from './pages/lequipe';
 
 const jeuList = new JeuList([]);
-jeuList.show(`https://api.rawg.io/api/games?page_size=40`);
+jeuList.show(
+	`https://api.rawg.io/api/games?page_size=40&dates=2020-01-01,2021-12-31&metacritic=50,100`
+);
 
 const lequipe = new Lequipe();
 
@@ -21,7 +23,9 @@ const form = document.querySelector('.d-flex');
 form.addEventListener('submit', event => {
 	event.preventDefault();
 	const research = form.querySelector('input[name="search"]')?.value;
-	jeuList.show(`https://api.rawg.io/api/games?search=${research}`);
+	jeuList.show(
+		`https://api.rawg.io/api/games?search=${research}&metacritic=1,100`
+	);
 });
 
 const favor = document
