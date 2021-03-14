@@ -3,6 +3,9 @@ import JeuList from './pages/jeuList';
 import favoris from './pages/favoris';
 import Lequipe from './pages/lequipe';
 import Requete from './components/request';
+import Details from './pages/details';
+
+const details = new Details();
 
 let order = '';
 const jeuList = new JeuList([]);
@@ -30,7 +33,7 @@ form.addEventListener('submit', event => {
 	const research = form.querySelector('input[name="search"]')?.value;
 	Requete.initFetch(
 		jeuList,
-		`https://api.rawg.io/api/games?page_size=20&search=${research}&dates=2020-01-01,2021-12-31&metacritic=50,100&ordering=${order}`
+		`https://api.rawg.io/api/games?page_size=20&search=${research}&metacritic=50,100&ordering=${order}`
 	);
 });
 

@@ -1,14 +1,20 @@
-import Page from '../pages/Page';
-import Component from '../components/Component';
+import Page from './Page';
+import DetailsComponent from '../components/detailsComponent';
 
 export default class Details extends Page {
-	constructor() {
-		super([
-			new Component(
-				'h2',
-				{ name: 'class', value: 'title' },
-				"L'équipe de développement :"
-			),
-		]);
+	#jeu;
+
+	constructor(jeu) {
+		super();
+		this.#jeu = jeu;
+	}
+
+	set jeu(value) {
+		this.#jeu = value;
+		this.children = new DetailsComponent(this.#jeu);
+	}
+
+	mount(element) {
+		super.mount(element);
 	}
 }
