@@ -45,18 +45,9 @@ export default class Requete {
 			})
 			.then(() => {
 				document.querySelectorAll('.wrapper a').forEach(link => {
-					Router.routes.push({
-						path: `${link.getAttribute('href')}`,
-						page: details,
-						title: 'Instant G@M3RZ',
-					});
-				});
-			})
-			.then(() => {
-				document.querySelectorAll('.wrapper a').forEach(link => {
 					link.addEventListener('click', event => {
 						event.preventDefault();
-						Router.navigate(event.target.getAttribute('href'));
+						Router.navigate(link.getAttribute('href'), true);
 					});
 				});
 			});
@@ -104,22 +95,24 @@ export default class Requete {
 			})
 			.then(() => {
 				document.querySelectorAll('.wrapper a').forEach(link => {
-					Router.routes.push({
-						path: `${link.getAttribute('href')}`,
-						page: details,
-						title: 'Instant G@M3RZ',
-					});
-				});
-			})
-			.then(() => {
-				document.querySelectorAll('.wrapper a').forEach(link => {
 					link.addEventListener('click', event => {
 						event.preventDefault();
-						Router.navigate(event.target.getAttribute('href'));
+						Router.navigate(link.getAttribute('href'), true);
 					});
 				});
 			});
 
 		this.numPage++;
+	}
+
+	static initDetails(page, url) {
+		fetch(url)
+			.then(response => response.json())
+			.then(data => {
+				page.jeu = data;
+			})
+			.then(() => {
+				page.element.innerHTML = page.render();
+			});
 	}
 }

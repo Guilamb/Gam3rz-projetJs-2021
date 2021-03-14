@@ -1,3 +1,6 @@
+import Requete from './components/request';
+import Details from './pages/details';
+
 export default class Router {
 	static titleElement;
 	static contentElement;
@@ -27,11 +30,35 @@ export default class Router {
 	 * @param {Boolean} pushState active/désactive le pushState (ajout d'une entrée dans l'historique de navigation)
 	 */
 	static navigate(path, pushState = true) {
-		const route = this.routes.find(route => route.path === path);
+		let route;
+
+		let pageDetails;
+
+		if (path.includes('details')) {
+			route = this.routes.find(route => route.path === 'details');
+			pageDetails = true;
+		} else {
+			route = this.routes.find(route => route.path === path);
+			pageDetails = false;
+		}
 		if (route) {
 			// this.titleElement.innerHTML = `<h1>${route.title}</h1>`;
 			this.contentElement.innerHTML = route.page.render();
 			route.page.mount?.(this.contentElement);
+
+			document.querySelectorAll('.wrapper a').forEach(link => {
+				link.addEventListener('click', event => {
+					event.preventDefault();
+					Router.navigate(link.getAttribute('href'), true);
+				});
+			});
+
+			if (pageDetails) {
+				Requete.initDetails(
+					route.page,
+					`https://api.rawg.io/api/games/${path.substr(8, path.length)}`
+				);
+			}
 
 			if (pushState) {
 				window.history.pushState(null, null, path);
