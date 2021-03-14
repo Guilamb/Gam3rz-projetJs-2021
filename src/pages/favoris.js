@@ -14,8 +14,18 @@ export default class favoris extends Page {
 	}
 
 	show() {
-		document.querySelectorAll('.flip-card-inner').forEach(el => {
-			el.querySelector('.click').setAttribute('style', 'display = none');
+		const listeFavoris = localStorage.getItem('favoris');
+
+		document.querySelectorAll('.col-3.flip-card').forEach(el => {
+			if (listeFavoris.includes(el.querySelector('.card-title').innerText)) {
+				console.log(
+					el.querySelector('.flip-card-inner .card-title').innerText +
+						' est dans les favoris'
+				);
+			} else {
+				console.log(el.className);
+				el.setAttribute('style', 'display : none');
+			}
 		});
 	}
 }

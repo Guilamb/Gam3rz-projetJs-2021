@@ -5,6 +5,8 @@ export default class Requete {
 	static numPage = 1;
 
 	static initFetch(page, url) {
+		let listeFavoris = {};
+
 		fetch(url)
 			.then(response => response.json())
 			.then(data => {
@@ -14,34 +16,43 @@ export default class Requete {
 				page.element.innerHTML = page.render();
 			})
 			.then(() => {
-				document.querySelectorAll('.flip-card-inner').forEach(el => {
-					el.querySelector('.flip-card-back > button').addEventListener(
-						'click',
-						function (event) {
-							event.preventDefault();
-							const img = el.querySelector('.flip-card-back .fav');
+				document
+					.querySelectorAll('.col-3.flip-card' /*'.flip-card-inner'*/)
+					.forEach(el => {
+						el.querySelector('.flip-card-back > button').addEventListener(
+							'click',
+							function (event) {
+								event.preventDefault();
+								const img = el.querySelector('.flip-card-back .fav');
 
-							if (!img.classList.contains('click')) {
-								img.setAttribute('src', './images/star-fav-clicked.png');
-								img.classList.add('click');
-								el.querySelector('.flip-card-front > .fav').setAttribute(
-									'src',
-									'./images/star-fav-clicked.png'
-								);
-								el.querySelector('.flip-card-front > .fav').removeAttribute(
-									'style'
-								);
-							} else {
-								img.setAttribute('src', './images/star-fav.png');
-								img.classList.remove('click');
-								el.querySelector('.flip-card-front > .fav').setAttribute(
-									'style',
-									'visibility:hidden;'
-								);
+								if (!img.classList.contains('click')) {
+									img.setAttribute('src', './images/star-fav-clicked.png');
+									img.classList.add('click');
+									//el.classList.add('clickCard');
+									listeFavoris +=
+										el.querySelector('.card-title').innerText + ' ';
+									console.log(listeFavoris);
+									localStorage.setItem('favoris', JSON.stringify(listeFavoris));
+									el.querySelector('.flip-card-front > .fav').setAttribute(
+										'src',
+										'./images/star-fav-clicked.png'
+									);
+									el.querySelector('.flip-card-front > .fav').removeAttribute(
+										'style'
+									);
+								} else {
+									img.setAttribute('src', './images/star-fav.png');
+									img.classList.remove('click');
+									localStorage.removeItem('favoris');
+									localStorage.setItem('favoris', listeFavoris);
+									el.querySelector('.flip-card-front > .fav').setAttribute(
+										'style',
+										'visibility:hidden;'
+									);
+								}
 							}
-						}
-					);
-				});
+						);
+					});
 			})
 			.then(() => {
 				document.querySelectorAll('.wrapper a').forEach(link => {

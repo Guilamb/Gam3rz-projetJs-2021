@@ -18,7 +18,7 @@ export default class Lequipe extends Page {
 				'100%'
 			),
 			new Member('Aubrian', 'Duhayon', 'Skyeaaa', 'Fornite', '4000%'),
-			new Member('Guilhane', 'Bourgoin', 'Guilamb', '?', '100%'),
+			new Member('Guilhane', 'Bourgoin', 'Guilamb', 'Hollow Knight', '100%'),
 			new Member('Thomas', 'Prunier', 'CosmicRadiocity', '?', '100%'),
 		]);
 	}

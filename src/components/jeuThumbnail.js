@@ -34,7 +34,14 @@ export default class jeuThumbnail extends Component {
 								),
 								new Component(
 									'button',
-									[{ name: 'type', value: 'button' }],
+									[
+										{
+											name: 'type',
+											value: 'button',
+											name: 'class',
+											value: 'btnFavoris',
+										},
+									],
 									[
 										'.',
 										new Component(
