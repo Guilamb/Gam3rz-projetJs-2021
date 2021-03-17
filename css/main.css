@@ -26,12 +26,22 @@ img {
     height: 25px;
     visibility: visible;
 }
+.flip-card-back > button > .fav  {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 25px;
+  height: 25px;
+  visibility: visible;
+}
 
 .flip-card-back > button {
     position: static;
     top: 5px;
     right: 5px;
     visibility: hidden;
+    color: white;
+
 }
 
 .flip-card-front > .fav {

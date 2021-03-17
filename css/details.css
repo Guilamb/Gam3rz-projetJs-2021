@@ -29,6 +29,7 @@
 .cta:hover {
     transition: 0.5s;
     box-shadow: 10px 10px 0 #FBC638;
+    color: white;
 }
 
 .cta span:nth-child(2) {
