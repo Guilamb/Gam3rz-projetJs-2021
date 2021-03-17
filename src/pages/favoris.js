@@ -15,7 +15,8 @@ export default class favoris extends Page {
 
 	show() {
 		let creationCartes;
-		const listeFavoris = localStorage.getItem('favoris');
+		const listeFavorisTemp = localStorage.getItem('favoris');
+		const listeFavoris = JSON.parse(listeFavorisTemp);
 		/*
 		document.querySelectorAll('.col-3.flip-card').forEach(el => {
 			if (listeFavoris.includes(el.querySelector('.card-title').innerText)) {
@@ -28,10 +29,11 @@ export default class favoris extends Page {
 				el.setAttribute('style', 'display : none');
 			}
 		});*/
-		console.log(listeFavoris);
+		console.log('liste : ' + listeFavoris);
 
 		listeFavoris.forEach(element => {
 			console.log(element.name);
+			creationCartes = new jeuThumbnail(element);
 		});
 	}
 }
