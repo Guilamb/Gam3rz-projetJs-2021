@@ -78,7 +78,7 @@ tri.forEach(element =>
 );
 
 //Décommenter pour voir une implémentation du filtre des genres
-/*let genreItems = [];
+let genreItems = [];
 let i = 0;
 
 fetch('https://api.rawg.io/api/genres')
@@ -95,7 +95,7 @@ fetch('https://api.rawg.io/api/genres')
 				Requete.initFetch(jeuList, `https://api.rawg.io/api/games?page_size=20&dates=2020-01-01,2021-12-31&metacritic=50,100&genres=${element.id}&ordering=${order}`);
 			})
 		})
-	});*/
+	});
 
 
 

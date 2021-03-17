@@ -47,7 +47,7 @@ export default class Router {
 			if (this.previousPage) this.previousPage.unmount?.();
 
 			this.contentElement.innerHTML = route.page.render();
-			route.page.mount?.(this.contentElement);
+			route.page.mount ?.(this.contentElement);
 
 			document.querySelectorAll('.wrapper a').forEach(link => {
 				link.addEventListener('click', event => {
@@ -68,6 +68,17 @@ export default class Router {
 			}
 
 			this.previousPage = route.page;
+		}
+		if (document.location.pathname != '/') {
+			document.querySelectorAll('.dropdownMenu').forEach(element => {
+				element.setAttribute('class', element.getAttribute('class') + ' d-none');
+			})
+			document.querySelector('.d-flex').setAttribute('class', 'd-none');
+		} else {
+			document.querySelectorAll('.dropdownMenu').forEach(element => {
+				element.setAttribute('class', 'nav-item dropdownMenu');
+			})
+			document.querySelector('form').setAttribute('class', 'd-flex');
 		}
 	}
 }
