@@ -4,6 +4,8 @@ import favoris from './pages/favoris';
 import Lequipe from './pages/lequipe';
 import Requete from './components/request';
 import Details from './pages/details';
+import GenreItem from './components/GenreItem';
+import GenreList from './components/GenreList';
 
 const details = new Details();
 
@@ -30,7 +32,7 @@ Router.routes = [
 const form = document.querySelector('.d-flex');
 form.addEventListener('submit', event => {
 	event.preventDefault();
-	const research = form.querySelector('input[name="search"]')?.value;
+	const research = form.querySelector('input[name="search"]') ?.value;
 	Requete.initFetch(
 		jeuList,
 		`https://api.rawg.io/api/games?page_size=20&search=${research}&metacritic=50,100&ordering=${order}`
@@ -74,6 +76,28 @@ tri.forEach(element =>
 		);
 	})
 );
+
+//Décommenter pour voir une implémentation du filtre des genres
+/*let genreItems = [];
+let i = 0;
+
+fetch('https://api.rawg.io/api/genres')
+	.then(response => response.json())
+	.then(data => {
+		data.results.forEach(element => {
+			genreItems[i] = new GenreItem(element.name, element.slug).render();
+			i++;
+		})
+		document.querySelector('.genreMenu').innerHTML = new GenreList(genreItems).render();
+	}).then(e => {
+		document.querySelectorAll('.genre-item').forEach(element => {
+			element.addEventListener('click', event => {
+				Requete.initFetch(jeuList, `https://api.rawg.io/api/games?page_size=20&dates=2020-01-01,2021-12-31&metacritic=50,100&genres=${element.id}&ordering=${order}`);
+			})
+		})
+	});*/
+
+
 
 window.onpopstate = () => Router.navigate(document.location.pathname, false);
 // affichage de la page initiale :
