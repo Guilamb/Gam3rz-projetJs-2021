@@ -7,6 +7,8 @@ export default class Router {
 
 	static routes = [];
 
+	static previousPage;
+
 	/**
 	 * Indique au Router la balise HTML contenant le menu de navigation
 	 * Écoute le clic sur chaque lien et déclenche la méthode navigate
@@ -42,6 +44,8 @@ export default class Router {
 		}
 		if (route) {
 			// this.titleElement.innerHTML = `<h1>${route.title}</h1>`;
+			if (this.previousPage) this.previousPage.unmount?.();
+
 			this.contentElement.innerHTML = route.page.render();
 			route.page.mount?.(this.contentElement);
 
@@ -62,6 +66,8 @@ export default class Router {
 			if (pushState) {
 				window.history.pushState(null, null, path);
 			}
+
+			this.previousPage = route.page;
 		}
 	}
 }

@@ -16,6 +16,10 @@ export default class Details extends Page {
 		super.mount(element);
 	}
 
+	unmount() {
+		this.#jeu = null;
+	}
+
 	render() {
 		let data = this.#jeu;
 		if (!data) return 'Chargement en cours';
