@@ -16,6 +16,7 @@ export default class Component {
 		} else {
 			html += ' />';
 		}
+
 		return html;
 	}
 
