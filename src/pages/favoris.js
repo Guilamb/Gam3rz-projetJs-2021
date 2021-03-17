@@ -14,8 +14,9 @@ export default class favoris extends Page {
 	}
 
 	show() {
+		let creationCartes;
 		const listeFavoris = localStorage.getItem('favoris');
-
+		/*
 		document.querySelectorAll('.col-3.flip-card').forEach(el => {
 			if (listeFavoris.includes(el.querySelector('.card-title').innerText)) {
 				console.log(
@@ -26,6 +27,11 @@ export default class favoris extends Page {
 				console.log(el.className);
 				el.setAttribute('style', 'display : none');
 			}
+		});*/
+		console.log(listeFavoris);
+
+		listeFavoris.forEach(element => {
+			console.log(element.name);
 		});
 	}
 }

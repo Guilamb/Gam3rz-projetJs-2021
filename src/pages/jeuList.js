@@ -1,5 +1,6 @@
 import Page from './Page';
 import jeuThumbnail from '../components/jeuThumbnail';
+import Requete from '../components/request';
 
 export default class jeuList extends Page {
 	#jeux;
@@ -16,5 +17,9 @@ export default class jeuList extends Page {
 
 	mount(element) {
 		super.mount(element);
+		Requete.initFetch(
+			this,
+			`https://api.rawg.io/api/games?page_size=20&dates=2020-01-01,2021-12-31&metacritic=50,100`
+		);
 	}
 }
