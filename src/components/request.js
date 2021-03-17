@@ -1,5 +1,4 @@
 import Router from '../Router.js';
-import details from '../pages/details.js';
 
 export default class Requete {
 	static numPage = 1;

@@ -1,5 +1,4 @@
 import Requete from './components/request';
-import Details from './pages/details';
 
 export default class Router {
 	static titleElement;
