@@ -12,15 +12,10 @@ export default class Details extends Page {
 
 	set jeu(value) {
 		this.#jeu = value;
-		// this.children = [new DetailsComponent(this.#jeu)];
 	}
 
 	mount(element) {
 		super.mount(element);
-	}
-
-	unmount() {
-		super.unmount();
 	}
 
 	render() {
