@@ -133,4 +133,16 @@ export default class Requete {
 				page.element.innerHTML = page.render();
 			});
 	}
+
+	static initScreenshots(page, url) {
+		fetch(url)
+			.then(response => response.json())
+			.then(data => {
+				console.log(data.results);
+				page.screenshots = data.results;
+			})
+			.then(() => {
+				page.element.innerHTML = page.render();
+			});
+	}
 }
