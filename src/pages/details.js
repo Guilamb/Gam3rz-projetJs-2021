@@ -32,27 +32,63 @@ export default class Details extends Page {
 
 		if (!data && !gameImages) return 'Chargement en cours';
 
+		const video = data.clip
+			? `<video controls="controls"> <source src="${data.clip.clip}"/> </video>`
+			: `<img src='https://freefrontend.com/assets/img/html-funny-404-pages/HTML-404-Error-Page.gif'>`;
+
+		let images = '';
+		gameImages.forEach(image => {
+			images += `
+			<img src='${image.image}' alt>
+			`;
+		});
+
+		let plateformes = '<ul>';
+		data.platforms.forEach(plateforme => {
+			plateformes += `<li> ${plateforme.platform.name} </li>`;
+		});
+		plateformes += '</ul>';
+
+		let genres = '<ul>';
+		data.genres.forEach(genre => {
+			genres += `<li> ${genre.name} </li>`;
+		});
+		genres += '</ul>';
+
 		return `
 				<div style="border-radius: 5px; border-color: brown;">
 					<br>
 					<h1> ${data.name} NOTE : ${data.metacritic}</h1>
 					<br>
 					<div>
-						<video controls="controls">
-							<source src="${data.clip.clip}"/>    
-						</video>
+						Vidéo de présentation
+						${video}
 					</div>
 					<br>
 					<div>
-						TODO SCREENSHOTS
-						<img src="${gameImages[0].image}">
+						Liste de screenshots
+						<figure>
+							${images}
+						</figure>
 					</div>
+					<br>
 					<div>
+						Description
 						${data.description}
 					</div>
-
+					<br>
 					<div>
-						TODO FAVORI, PLATEFORMES, GENRES
+						Plateformes
+						${plateformes}
+					</div>
+					<br>
+					<div>
+						Genres
+						${genres}
+					</div>
+					<br>
+					<div>
+						TODO FAVORI
 					</div>
 				</div>
 				`;
