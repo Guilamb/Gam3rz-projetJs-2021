@@ -11,7 +11,7 @@ const details = new Details();
 
 let order = '';
 const jeuList = new JeuList([]);
-Requete.initFetch(
+Requete.gameList(
 	jeuList,
 	`https://api.rawg.io/api/games?page_size=20&dates=2020-01-01,2021-12-31&metacritic=50,100`
 );
@@ -33,7 +33,7 @@ const form = document.querySelector('.d-flex');
 form.addEventListener('submit', event => {
 	event.preventDefault();
 	const research = form.querySelector('input[name="search"]')?.value;
-	Requete.initFetch(
+	Requete.gameList(
 		jeuList,
 		`https://api.rawg.io/api/games?page_size=20&search=${research}&metacritic=50,100&ordering=${order}`
 	);
@@ -49,9 +49,10 @@ const btnFavo = document.querySelector('btnFavoris');
 
 document.querySelector('.moreGames').addEventListener('click', event => {
 	event.preventDefault();
-	Requete.addNewGames(
+	Requete.gameList(
 		jeuList,
-		`https://api.rawg.io/api/games?page=${Requete.numPage}&page_size=20&dates=2020-01-01,2021-12-31&metacritic=50,100&ordering=${order}`
+		`https://api.rawg.io/api/games?page=${Requete.numPage}&page_size=20&dates=2020-01-01,2021-12-31&metacritic=50,100&ordering=${order}`,
+		true
 	);
 });
 
@@ -70,7 +71,7 @@ tri[2].addEventListener('click', event => {
 });
 tri.forEach(element =>
 	element.addEventListener('click', event => {
-		Requete.initFetch(
+		Requete.gameList(
 			jeuList,
 			`https://api.rawg.io/api/games?page_size=20&dates=2020-01-01,2021-12-31&metacritic=50,100&ordering=${order}`
 		);
@@ -95,7 +96,7 @@ fetch('https://api.rawg.io/api/genres')
 	.then(e => {
 		document.querySelectorAll('.genre-item').forEach(element => {
 			element.addEventListener('click', event => {
-				Requete.initFetch(
+				Requete.gameList(
 					jeuList,
 					`https://api.rawg.io/api/games?page_size=20&dates=2020-01-01,2021-12-31&metacritic=50,100&genres=${element.id}&ordering=${order}`
 				);

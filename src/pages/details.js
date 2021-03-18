@@ -1,6 +1,4 @@
 import Page from './Page';
-import Requete from '../components/request';
-import Img from '../components/Img';
 
 export default class Details extends Page {
 	#jeu;
@@ -17,7 +15,6 @@ export default class Details extends Page {
 
 	set screenshots(value) {
 		this.#screenshots = value;
-		console.log(this.#screenshots);
 	}
 
 	mount(element) {
@@ -31,16 +28,10 @@ export default class Details extends Page {
 
 	render() {
 		let data = this.#jeu;
-		if (!data) return 'Chargement en cours';
-
 		let gameImages = this.#screenshots;
-		if (!gameImages) {
-			Requete.initScreenshots(
-				this,
-				`https://api.rawg.io/api/games/${data.slug}/screenshots`
-			);
-			return;
-		}
+
+		if (!data && !gameImages) return 'Chargement en cours';
+
 		return `
 				<div style="border-radius: 5px; border-color: brown;">
 					<br>
@@ -54,6 +45,7 @@ export default class Details extends Page {
 					<br>
 					<div>
 						TODO SCREENSHOTS
+						<img src="${gameImages[0].image}">
 					</div>
 					<div>
 						${data.description}
