@@ -12,10 +12,16 @@ export default class Member extends Component {
 					`${prenom} ${nom} ${pseudo}`
 				),
 				new Component(
-					'h6',
-					[{ name: 'class', value: 'jeupref' }],
+					'a',
+					[
+						{
+							name: 'href',
+							value: `/details-${jeuPref}`,
+						},
+					],
 					`Son jeu préféré est ${jeuPref}`
 				),
+
 				new Component(
 					'h6',
 					[{ name: 'class', value: 'note' }],

@@ -47,7 +47,6 @@ const favor = document
 		favo.show();
 	});
 	*/
-const btnFavo = document.querySelector('btnFavoris');
 
 document.querySelector('.moreGames').addEventListener('click', event => {
 	event.preventDefault();

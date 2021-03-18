@@ -14,16 +14,16 @@ export default class Lequipe extends Page {
 				'Antoine',
 				'Martinsse',
 				'CorwynJ',
-				'Kirby Super Star Ultra',
+				'Kirby-Super-Star-Ultra',
 				'100%'
 			),
-			new Member('Aubrian', 'Duhayon', 'Skyeaaa', 'Dying Light', '4000%'),
-			new Member('Guilhane', 'Bourgoin', 'Guilamb', 'Hollow Knight', '100%'),
+			new Member('Aubrian', 'Duhayon', 'Skyeaaa', 'Dying-Light', '4000%'),
+			new Member('Guilhane', 'Bourgoin', 'Guilamb', 'hollow-knight', '100%'),
 			new Member(
 				'Thomas',
 				'Prunier',
 				'CosmicRadiocity',
-				'The Legend of Zelda The Wind Waker',
+				'the-legend-of-zelda-the-wind-waker-hd',
 				'100%'
 			),
 		]);
