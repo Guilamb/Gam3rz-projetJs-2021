@@ -17,9 +17,15 @@ export default class Lequipe extends Page {
 				'Kirby Super Star Ultra',
 				'100%'
 			),
-			new Member('Aubrian', 'Duhayon', 'Skyeaaa', 'Fornite', '4000%'),
+			new Member('Aubrian', 'Duhayon', 'Skyeaaa', 'Dying Light', '4000%'),
 			new Member('Guilhane', 'Bourgoin', 'Guilamb', 'Hollow Knight', '100%'),
-			new Member('Thomas', 'Prunier', 'CosmicRadiocity', '?', '100%'),
+			new Member(
+				'Thomas',
+				'Prunier',
+				'CosmicRadiocity',
+				'The Legend of Zelda The Wind Waker',
+				'100%'
+			),
 		]);
 	}
 }

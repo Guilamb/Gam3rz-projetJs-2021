@@ -1,5 +1,4 @@
 import Requete from './components/request';
-import Details from './pages/details';
 
 export default class Router {
 	static titleElement;
@@ -7,6 +6,8 @@ export default class Router {
 	static #menuElement;
 
 	static routes = [];
+
+	static previousPage;
 
 	/**
 	 * Indique au Router la balise HTML contenant le menu de navigation
@@ -43,6 +44,8 @@ export default class Router {
 		}
 		if (route) {
 			// this.titleElement.innerHTML = `<h1>${route.title}</h1>`;
+			if (this.previousPage) this.previousPage.unmount?.();
+
 			this.contentElement.innerHTML = route.page.render();
 			route.page.mount?.(this.contentElement);
 
@@ -54,7 +57,7 @@ export default class Router {
 			});
 
 			if (pageDetails) {
-				Requete.initDetails(
+				Requete.gameDetails(
 					route.page,
 					`https://api.rawg.io/api/games/${path.substr(8, path.length)}`
 				);
@@ -63,6 +66,22 @@ export default class Router {
 			if (pushState) {
 				window.history.pushState(null, null, path);
 			}
+
+			this.previousPage = route.page;
+		}
+		if (document.location.pathname != '/') {
+			document.querySelectorAll('.dropdownMenu').forEach(element => {
+				element.setAttribute(
+					'class',
+					element.getAttribute('class') + ' d-none'
+				);
+			});
+			document.querySelector('.d-flex').setAttribute('class', 'd-none');
+		} else {
+			document.querySelectorAll('.dropdownMenu').forEach(element => {
+				element.setAttribute('class', 'nav-item dropdownMenu');
+			});
+			document.querySelector('form').setAttribute('class', 'd-flex');
 		}
 	}
 }
