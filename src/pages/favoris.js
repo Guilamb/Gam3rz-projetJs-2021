@@ -33,7 +33,7 @@ export default class favoris extends Page {
 
 		listeFavoris.forEach(element => {
 			console.log(element.name);
-			creationCartes = new jeuThumbnail(element);
+			new jeuThumbnail(element);
 		});
 	}
 }

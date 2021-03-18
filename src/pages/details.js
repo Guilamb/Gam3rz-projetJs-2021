@@ -1,5 +1,4 @@
 import Page from './Page';
-import DetailsComponent from '../components/detailsComponent';
 import Requete from '../components/request';
 
 export default class Details extends Page {
