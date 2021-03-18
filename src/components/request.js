@@ -130,7 +130,7 @@ export default class Requete {
 				page.jeu = data;
 			})
 			.then(() => {
-				page.element.innerHTML = page.render();
+				this.initScreenshots(page, `${url}/screenshots`);
 			});
 	}
 
@@ -138,7 +138,6 @@ export default class Requete {
 		fetch(url)
 			.then(response => response.json())
 			.then(data => {
-				console.log(data.results);
 				page.screenshots = data.results;
 			})
 			.then(() => {
