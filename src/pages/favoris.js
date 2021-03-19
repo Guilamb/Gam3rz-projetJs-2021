@@ -4,17 +4,16 @@ import Page from './Page';
 export default class favoris extends Page {
 	#jeux;
 
-	constructor(jeux) {
+	constructor() {
 		super();
-		this.jeux = jeux;
 	}
 
 	set jeux(value) {
 		this.#jeux = value;
-		this.show();
+		this.children = this.show();
 	}
 
-	show() {
+	mount(el) {
 		let creationCartes;
 		const listeFavorisTemp = localStorage.getItem('favoris');
 		const listeFavoris = JSON.parse(listeFavorisTemp);
@@ -33,8 +32,15 @@ export default class favoris extends Page {
 		console.log('liste : ' + listeFavoris); //retourne OBJ OBJ
 
 		listeFavoris.forEach(element => {
-			console.log(element.name);
-			new jeuThumbnail(element);
+			console.log(element);
+			const t = {};
+			new jeuThumbnail(
+				element.slug,
+				element.name,
+				element.background_image,
+				element.metacritic
+			);
+			new jeuThumbnail();
 		});
 	}
 }

@@ -18,7 +18,7 @@ Requete.gameList(
 
 const lequipe = new Lequipe();
 
-const favo = new favoris(jeuList.jeux);
+const favo = new favoris();
 
 Router.contentElement = document.querySelector('.pageContent');
 Router.menuElement = document.querySelector('.mainMenu');

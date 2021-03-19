@@ -1,6 +1,7 @@
 import Page from './Page';
 import jeuThumbnail from '../components/jeuThumbnail';
 import Requete from '../components/request';
+import { format } from 'prettier';
 
 export default class jeuList extends Page {
 	#jeux;
@@ -12,6 +13,7 @@ export default class jeuList extends Page {
 
 	set jeux(value) {
 		this.#jeux = value;
+
 		this.children = this.#jeux.map(jeu => new jeuThumbnail(jeu));
 	}
 
