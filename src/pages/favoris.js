@@ -1,16 +1,17 @@
-import Page from './Page';
 import jeuThumbnail from '../components/jeuThumbnail';
+import Page from './Page';
 
 export default class favoris extends Page {
 	#jeux;
 
 	constructor(jeux) {
-		super(favoris);
+		super();
 		this.jeux = jeux;
 	}
 
 	set jeux(value) {
 		this.#jeux = value;
+		this.show();
 	}
 
 	show() {
@@ -29,7 +30,7 @@ export default class favoris extends Page {
 				el.setAttribute('style', 'display : none');
 			}
 		});*/
-		console.log('liste : ' + listeFavoris);
+		console.log('liste : ' + listeFavoris); //retourne OBJ OBJ
 
 		listeFavoris.forEach(element => {
 			console.log(element.name);
