@@ -39,7 +39,7 @@ export default class Details extends Page {
 		let images = '';
 		gameImages.forEach(image => {
 			images += `
-			<img src='${image.image}' alt>
+			<img class='screenshot' src='${image.image}' alt>
 			`;
 		});
 
@@ -56,41 +56,43 @@ export default class Details extends Page {
 		genres += '</ul>';
 
 		return `
-				<div style="border-radius: 5px; border-color: brown;">
-					<br>
-					<h1> ${data.name} NOTE : ${data.metacritic}</h1>
-					<br>
-					<div>
-						Vidéo de présentation
-						${video}
-					</div>
-					<br>
-					<div>
-						Liste de screenshots
-						<figure>
-							${images}
-						</figure>
-					</div>
-					<br>
-					<div>
-						Description
-						${data.description}
-					</div>
-					<br>
-					<div>
-						Plateformes
-						${plateformes}
-					</div>
-					<br>
-					<div>
-						Genres
-						${genres}
-					</div>
-					<br>
-					<div>
-						TODO FAVORI
-					</div>
-				</div>
-				`;
+		<div>
+			<br>
+			<div id="title">
+				<h1> ${data.name} NOTE : ${data.metacritic}</h1>
+			</div>
+			<br>
+			<div id="video">
+				Vidéo de présentation
+				${video}
+			</div>
+			<br>
+			<div id="screenshots">
+				Liste de screenshots
+				<figure>
+					${images}
+				</figure>
+			</div>
+			<br>
+			<div id="description">
+				Description
+				${data.description}
+			</div>
+			<br>
+			<div id="plateformes">
+				Plateformes
+				${plateformes}
+			</div>
+			<br>
+			<div id="genres">
+				Genres
+				${genres}
+			</div>
+			<br>
+			<div>
+				TODO FAVORI
+			</div>
+		</div>
+		`;
 	}
 }
