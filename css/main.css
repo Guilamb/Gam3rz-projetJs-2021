@@ -34,3 +34,7 @@ img {
 
 /* Show the dropdown menu on hover */
 .dropdownMenu:hover .dropdown-content {display: block;}
+
+.selected{
+  background-color: greenyellow;
+}
