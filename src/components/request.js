@@ -3,6 +3,8 @@ import Router from '../Router.js';
 export default class Requete {
 	static numPage = 1;
 
+	static initTri = false;
+
 	static gameList(page, url, add = false) {
 		let listeFavoris = [];
 		let jeux;
@@ -64,14 +66,22 @@ export default class Requete {
 							}
 						);
 					});
-			})
-			.then(() => {
-				document.querySelectorAll('.wrapper a').forEach(link => {
-					link.addEventListener('click', event => {
+
+				document
+					.querySelector('.moreGames')
+					.addEventListener('click', event => {
 						event.preventDefault();
-						Router.navigate(link.getAttribute('href'), true);
+						Requete.gameList(
+							page,
+							`https://api.rawg.io/api/games?page=${Requete.numPage}&page_size=20&dates=2020-01-01,2021-12-31&metacritic=50,100&ordering=${order}`,
+							true
+						);
 					});
-				});
+
+				if (!this.initTri) {
+					this.initSortingList(page);
+					this.initTri = true;
+				}
 			});
 		this.numPage++;
 	}
@@ -96,5 +106,36 @@ export default class Requete {
 			.then(() => {
 				page.element.innerHTML = page.render();
 			});
+	}
+
+	static initSortingList(page) {
+		console.log('initTri');
+
+		const tri = document.querySelectorAll('.tri-item');
+		tri[0].addEventListener('click', event => {
+			event.preventDefault();
+			page.unmount?.();
+			let order = '';
+			Requete.gameList(
+				page,
+				`https://api.rawg.io/api/games?page_size=20&dates=2020-01-01,2021-12-31&metacritic=50,100&ordering=${order}`
+			);
+		});
+		tri[1].addEventListener('click', event => {
+			event.preventDefault();
+			let order = '-released';
+			Requete.gameList(
+				page,
+				`https://api.rawg.io/api/games?page_size=20&dates=2020-01-01,2021-12-31&metacritic=50,100&ordering=${order}`
+			);
+		});
+		tri[2].addEventListener('click', event => {
+			event.preventDefault();
+			let order = '-metacritic';
+			Requete.gameList(
+				page,
+				`https://api.rawg.io/api/games?page_size=20&dates=2020-01-01,2021-12-31&metacritic=50,100&ordering=${order}`
+			);
+		});
 	}
 }

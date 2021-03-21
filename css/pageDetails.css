@@ -81,6 +81,11 @@ div#screenshots {
 
 div#screenshots img {
     margin: 9px;
+    
+    width: 300px;
+    height: 200px;
+    
+    border-radius: 15px;
 }
 
 .screenshot:hover {

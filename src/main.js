@@ -48,37 +48,6 @@ const favor = document
 	});
 	*/
 
-document.querySelector('.moreGames').addEventListener('click', event => {
-	event.preventDefault();
-	Requete.gameList(
-		jeuList,
-		`https://api.rawg.io/api/games?page=${Requete.numPage}&page_size=20&dates=2020-01-01,2021-12-31&metacritic=50,100&ordering=${order}`,
-		true
-	);
-});
-
-const tri = document.querySelectorAll('.tri-item');
-tri[0].addEventListener('click', event => {
-	event.preventDefault();
-	order = '';
-});
-tri[1].addEventListener('click', event => {
-	event.preventDefault();
-	order = '-released';
-});
-tri[2].addEventListener('click', event => {
-	event.preventDefault();
-	order = '-metacritic';
-});
-tri.forEach(element =>
-	element.addEventListener('click', event => {
-		Requete.gameList(
-			jeuList,
-			`https://api.rawg.io/api/games?page_size=20&dates=2020-01-01,2021-12-31&metacritic=50,100&ordering=${order}`
-		);
-	})
-);
-
 //Décommenter pour voir une implémentation du filtre des genres
 let genreItems = [];
 let i = 0;

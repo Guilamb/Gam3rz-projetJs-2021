@@ -18,11 +18,9 @@ export default class Router {
 		this.#menuElement = element;
 		const links = element.querySelectorAll('a');
 		links.forEach(link => {
-			console.log(link);
 			link.addEventListener('click', event => {
 				event.preventDefault();
 				this.navigate(event.target.getAttribute('href'));
-				console.log(event.target.getAttribute('href'));
 			});
 		});
 	}
