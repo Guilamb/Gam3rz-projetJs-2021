@@ -37,7 +37,7 @@ export default class jeuList extends Page {
 		if (!data) return 'Chargement en cours ...';
 
 		let html = `<link rel="stylesheet" type="text/css" href="css/gameCard.css">
-			 <div class="row align-items-start">`;
+			 <div class="row align-items-start" onscroll="scrolled(this)">`;
 
 		data.forEach(jeu => {
 			html += `

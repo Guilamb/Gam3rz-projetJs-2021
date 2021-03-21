@@ -7,6 +7,19 @@ import Details from './pages/details';
 import GenreItem from './components/GenreItem';
 import GenreList from './components/GenreList';
 
+function scrolled(o) {
+	console.log(
+		$(window).innerHeight() + $(window).scrollTop() + ' : ' + $('body').height()
+	);
+	if (
+		Math.round($(window).innerHeight() + $(window).scrollTop()) ==
+		$('body').height()
+	) {
+		alert('End');
+		Requete.LoadMoreGames(this);
+	}
+}
+
 const details = new Details();
 
 const jeuList = new JeuList([]);
@@ -40,14 +53,6 @@ form.addEventListener('submit', event => {
 		}${Requete.genreOption}${Requete.genres.toString()}`
 	);
 });
-/*
-const favor = document
-	.querySelector('.fav')
-	.addEventListener('click', event => {
-		event.preventDefault();
-		favo.show();
-	});
-*/
 
 window.onpopstate = () => {
 	let path = document.location.pathname;

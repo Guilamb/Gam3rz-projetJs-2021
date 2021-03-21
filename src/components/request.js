@@ -99,6 +99,7 @@ export default class Requete {
 					this.genreList(page);
 					this.initGenre = true;
 				}
+				this.LoadMoreGames(page);
 			});
 		this.numPage++;
 	}
@@ -198,5 +199,35 @@ export default class Requete {
 					});
 				});
 			});
+	}
+
+	static LoadMoreGames(page) {
+		window.addEventListener(
+			'scroll',
+			function () {
+				//event.preventDefault();
+				console.log(
+					Math.round($(window).innerHeight() + $(window).scrollTop()) +
+						' : ' +
+						$('body').height()
+				);
+				if (
+					Math.round($(window).innerHeight() + $(window).scrollTop()) ==
+					$('body').height()
+				) {
+					alert('End');
+					Requete.gameList(
+						page,
+						`https://api.rawg.io/api/games?page=${
+							Requete.numPage
+						}&page_size=20&dates=2020-01-01,2021-12-31&metacritic=50,100${
+							Requete.order
+						}${Requete.genreOption}${Requete.genres.toString()}`,
+						true
+					);
+				}
+			},
+			false
+		);
 	}
 }
