@@ -91,6 +91,13 @@ export default class Requete {
 						);
 					});
 
+				document.querySelectorAll('.detail').forEach(link => {
+					link.addEventListener('click', event => {
+						event.preventDefault();
+						Router.navigate(link.getAttribute('href'));
+					});
+				});
+
 				if (!this.initTri) {
 					this.initSortingList(page);
 					this.initTri = true;
@@ -126,8 +133,6 @@ export default class Requete {
 	}
 
 	static initSortingList(page) {
-		console.log('initTri');
-
 		const tri = document.querySelectorAll('.tri-item');
 		tri[0].addEventListener('click', event => {
 			event.preventDefault();
@@ -155,7 +160,6 @@ export default class Requete {
 	}
 
 	static genreList(page) {
-		console.log('initGenre');
 		let genreItems = [];
 		let i = 0;
 

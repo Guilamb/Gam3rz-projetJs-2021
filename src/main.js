@@ -4,8 +4,6 @@ import favoris from './pages/favoris';
 import Lequipe from './pages/lequipe';
 import Requete from './components/request';
 import Details from './pages/details';
-import GenreItem from './components/GenreItem';
-import GenreList from './components/GenreList';
 
 const details = new Details();
 
@@ -35,7 +33,7 @@ form.addEventListener('submit', event => {
 
 	Requete.gameList(
 		jeuList,
-		`https://api.rawg.io/api/games?page_size=20&search=${research}&metacritic=50,100${
+		`https://api.rawg.io/api/games?page_size=20&search=${research}&metacritic=50,100&dates=2020-01-01,2021-12-31${
 			Requete.order
 		}${Requete.genreOption}${Requete.genres.toString()}`
 	);

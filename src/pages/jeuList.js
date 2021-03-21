@@ -32,7 +32,6 @@ export default class jeuList extends Page {
 	}
 
 	render() {
-		console.log('render jeuList');
 		let data = this.#jeux;
 		if (!data) return 'Chargement en cours ...';
 
@@ -44,11 +43,13 @@ export default class jeuList extends Page {
 				<div class="col3 gameCard">
 				<div class="gameCard-header">
 					<h1 class="gameCard-title"> ${jeu.name} </h1>
-					<button id="gameCard-button-favorite"> Add to fav </button>
+					<button id="gameCard-button-favorite"> 
+						<img src="images/fav.png" alt="Bouton favori" width="50px" height="50px">
+					</button>
 				</div>
-				<a href="details-${jeu.slug}" class="">
+				<a class="detail" href="details-${jeu.slug}">
 				<div class="gameCard-body">
-					<img src="${jeu.background_image}" alt="Image de GTA" width=300 height=200>
+					<img src="${jeu.background_image}" alt="Image de ${jeu.name}" width=300 height=200>
 				</div>
 				<div class="gameCard-footer">
 					<h6 id="timestamp">${jeu.released}</h6>
