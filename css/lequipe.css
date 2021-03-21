@@ -1,0 +1,21 @@
+.member{
+    max-width: 25%;
+    background-color: white;
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+h6{
+    color: black;
+}
+
+a{
+    color: royalblue;
+}
+
+.member > a:hover{
+    background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
