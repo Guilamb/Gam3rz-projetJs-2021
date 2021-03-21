@@ -48,6 +48,7 @@ export default class Router {
 
 			this.contentElement.innerHTML = route.page.render();
 			route.page.mount?.(this.contentElement);
+			route.page.initlinks?.();
 
 			if (pageDetails) {
 				Requete.gameDetails(

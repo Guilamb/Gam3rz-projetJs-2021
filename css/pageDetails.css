@@ -142,11 +142,20 @@ div#genres li {
     0% {
         border-color: red;
     }
-    33% {
+    17% {
+        border-color: yellow;
+    }
+    33%{
         border-color: green;
+    }
+    50%{
+        border-color: cyan;
     }
     66% {
         border-color: blue;
+    }
+    83%{
+        border-color: magenta;
     }
     100% {
         border-color: red;
@@ -155,15 +164,24 @@ div#genres li {
 
 @keyframes background-rgb {
     0% {
-        background-color: red;
+        border-color: red;
     }
-    33% {
-        background-color: green;
+    17% {
+        border-color: yellow;
+    }
+    33%{
+        border-color: green;
+    }
+    50%{
+        border-color: cyan;
     }
     66% {
-        background-color: blue;
+        border-color: blue;
+    }
+    83%{
+        border-color: magenta;
     }
     100% {
-        background-color: red;
+        border-color: red;
     }
 }

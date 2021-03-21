@@ -1,6 +1,7 @@
 import Page from './Page';
 import Member from '../components/Member';
 import Component from '../components/Component';
+import Router from '../Router';
 
 export default class Lequipe extends Page {
 	constructor() {
@@ -15,27 +16,40 @@ export default class Lequipe extends Page {
 		<div class="row align-items-start">
 		<div class="member">
 		<h6 class="nom">Antoine Martinsse CorwynJ</h6>
-		<a href="/details-Kirby-Super-Star-Ultra">Son jeu préféré est Kirby-Super-Star-Ultra</a>
+		<img src='https://media1.giphy.com/media/5ev3alRsskWA0/giphy.gif'>
+		<h6>Son jeu préféré est <a class="detail" href="/details-Kirby-Super-Star-Ultra"> Kirby Super Star Ultra</a></h6>
 		<h6 class="note">Il mérite un bon 100% de la note</h6>
 		</div>
 		
 		<div class="member">
 		<h6 class="nom">Aubrian Duhayon Skyeaaa</h6>
-		<a href="/details-Dying-Light">Son jeu préféré est Dying-Light</a>
+		<img src='https://media1.giphy.com/media/7vmYjCRwWxbgs/giphy.gif'>
+		<h6>Son jeu préféré est <a class="detail" href="/details-Dying-Light">Dying Light</a></h6>
 		<h6 class="note">Il mérite un bon 4000% de la note</h6>
 		</div>
 
 		<div class="member">
 		<h6 class="nom">Guilhane Bourgoin Guilamb</h6>
-		<a href="/details-hollow-knight">Son jeu préféré est hollow-knight</a>
+		<img src='https://cdn03.nintendo-europe.com/media/images/08_content_images/games_6/wiiu_download_software_4/wiiuds_hollowknight/CI_WiiUDS_HollowKnight_SymphonyOfTheKnight.gif'>
+		<h6>Son jeu préféré est <a class="detail" href="/details-hollow-knight">Hollow Knight</a></h6>
 		<h6 class="note">Il mérite un bon 100% de la note</h6>
 		</div>
 
 		<div class="member">
 		<h6 class="nom">Thomas Prunier CosmicRadiocity</h6>
-		<a href="/details-the-legend-of-zelda-the-wind-waker-hd">Son jeu préféré est the-legend-of-zelda-the-wind-waker-hd</a>
+		<img src='https://thumbs.gfycat.com/UnrealisticAcidicBlueandgoldmackaw-size_restricted.gif'>
+		<h6>Son jeu préféré est <a class="detail" href="/details-the-legend-of-zelda-the-wind-waker-hd">The Legend of Zelda The Wind Waker HD</a></h6>
 		<h6 class="note">Il mérite un bon 100% de la note</h6>
 		</div>
 		</div>`;
+	}
+
+	initlinks() {
+		document.querySelectorAll('.detail').forEach(link => {
+			link.addEventListener('click', event => {
+				event.preventDefault();
+				Router.navigate(link.getAttribute('href'));
+			});
+		});
 	}
 }
