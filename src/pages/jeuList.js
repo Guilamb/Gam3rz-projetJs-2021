@@ -41,11 +41,12 @@ export default class jeuList extends Page {
 
 		data.forEach(jeu => {
 			html += `
-			<a href="details-${jeu.slug}" class="col3 gameCard">
+				<div class="col3 gameCard">
 				<div class="gameCard-header">
 					<h1 class="gameCard-title"> ${jeu.name} </h1>
 					<button id="gameCard-button-favorite"> Add to fav </button>
 				</div>
+				<a href="details-${jeu.slug}" class="">
 				<div class="gameCard-body">
 					<img src="${jeu.background_image}" alt="Image de GTA" width=300 height=200>
 				</div>
@@ -54,6 +55,7 @@ export default class jeuList extends Page {
 					<h3 id="note">${jeu.metacritic}</h3>
 				</div>
 			</a>
+			</div>
 			`;
 		});
 
