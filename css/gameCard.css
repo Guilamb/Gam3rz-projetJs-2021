@@ -67,24 +67,24 @@ a:hover {
 
 @keyframes shadow-rgb {
     0% {
-        border-color: red;
+        box-shadow: 5px 5px 0 0 red;
     }
     17% {
-        border-color: yellow;
+        box-shadow: 5px 5px 0 0 yellow;
     }
     33%{
-        border-color: green;
+        box-shadow: 5px 5px 0 0 green;
     }
     50%{
-        border-color: cyan;
+        box-shadow: 5px 5px 0 0 cyan;
     }
     66% {
-        border-color: blue;
+        box-shadow: 5px 5px 0 0 blue;
     }
     83%{
-        border-color: magenta;
+        box-shadow: 5px 5px 0 0 magenta;
     }
     100% {
-        border-color: red;
+        box-shadow: 5px 5px 0 0 red;
     }
 }
