@@ -46,33 +46,7 @@ const favor = document
 		event.preventDefault();
 		favo.show();
 	});
-	*/
-
-//Décommenter pour voir une implémentation du filtre des genres
-let genreItems = [];
-let i = 0;
-
-fetch('https://api.rawg.io/api/genres')
-	.then(response => response.json())
-	.then(data => {
-		data.results.forEach(element => {
-			genreItems[i] = new GenreItem(element.name, element.slug).render();
-			i++;
-		});
-		document.querySelector('.genreMenu').innerHTML = new GenreList(
-			genreItems
-		).render();
-	})
-	.then(e => {
-		document.querySelectorAll('.genre-item').forEach(element => {
-			element.addEventListener('click', event => {
-				Requete.gameList(
-					jeuList,
-					`https://api.rawg.io/api/games?page_size=20&dates=2020-01-01,2021-12-31&metacritic=50,100&genres=${element.id}&ordering=${order}`
-				);
-			});
-		});
-	});
+*/
 
 window.onpopstate = () => {
 	let path = document.location.pathname;
