@@ -44,7 +44,7 @@ export default class jeuList extends Page {
 				<div class="gameCard-header">
 					<h1 class="gameCard-title"> ${jeu.name} </h1>
 					<button id="gameCard-button-favorite"> 
-						<img src="images/fav.png" alt="Bouton favori" width="50px" height="50px">
+						<img class='favori' src="images/fav.png" alt="Bouton favori" width="50px" height="50px">
 					</button>
 				</div>
 				<a class="detail" href="details-${jeu.slug}">

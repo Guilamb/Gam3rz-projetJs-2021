@@ -48,7 +48,8 @@ export default class Lequipe extends Page {
 		document.querySelectorAll('.detail').forEach(link => {
 			link.addEventListener('click', event => {
 				event.preventDefault();
-				Router.navigate(link.getAttribute('href'));
+				let href = link.getAttribute('href');
+				Router.navigate(href.substr(1, href.length));
 			});
 		});
 	}
