@@ -9,7 +9,6 @@ import GenreList from './components/GenreList';
 
 const details = new Details();
 
-let order = '';
 const jeuList = new JeuList([]);
 Requete.gameList(
 	jeuList,
@@ -36,7 +35,9 @@ form.addEventListener('submit', event => {
 
 	Requete.gameList(
 		jeuList,
-		`https://api.rawg.io/api/games?page_size=20&search=${research}&metacritic=50,100&ordering=${order}`
+		`https://api.rawg.io/api/games?page_size=20&search=${research}&metacritic=50,100${
+			Requete.order
+		}${Requete.genreOption}${Requete.genres.toString()}`
 	);
 });
 /*
