@@ -29,28 +29,32 @@ export default class Requete {
 			})
 			.then(() => {
 				document
-					.querySelectorAll('.col-3.flip-card' /*'.flip-card-inner'*/)
+					.querySelectorAll('.col3.gameCard' /*'.flip-card-inner'*/)
 					.forEach((el, index) => {
-						el.querySelector('.flip-card-back > button').addEventListener(
+						el.querySelector('#gameCard-button-favorite').addEventListener(
 							'click',
 							function (event) {
 								event.preventDefault();
-								const imageFavoris = el.querySelector('.flip-card-back .fav');
+								//faut trouver une autre alternative
+								/*const imageFavoris = el.querySelector('.flip-card-back .fav');
 
 								if (!imageFavoris.classList.contains('click')) {
 									imageFavoris.setAttribute(
 										'src',
 										'./images/star-fav-clicked.png'
 									);
-									imageFavoris.classList.add('click');
+									imageFavoris.classList.add('click');*/
+								const whatIsInLocalStorage = localStorage.getItem('favoris');
+								if (whatIsInLocalStorage != null) {
+									listeFavoris = JSON.parse(whatIsInLocalStorage);
+								}
 
-									listeFavoris.push(jeux[index]);
-									//el.querySelector('.card-title').innerText + ' ';
-									console.log(listeFavoris);
-									console.log(jeux[index]);
+								listeFavoris.push(jeux[index]);
+								console.log(listeFavoris);
+								console.log(jeux[index]);
 
-									localStorage.setItem('favoris', JSON.stringify(listeFavoris));
-
+								localStorage.setItem('favoris', JSON.stringify(listeFavoris));
+								/*
 									el.querySelector('.flip-card-front > .fav').setAttribute(
 										'src',
 										'./images/star-fav-clicked.png'
@@ -67,7 +71,7 @@ export default class Requete {
 										'style',
 										'visibility:hidden;'
 									);
-								}
+								}*/
 							}
 						);
 					});
