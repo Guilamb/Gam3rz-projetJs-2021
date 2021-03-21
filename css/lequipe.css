@@ -27,6 +27,7 @@ a{
     -webkit-text-fill-color: transparent;
 }
 
+
 @keyframes border-rgb {
     0% {
         border-color: red;
