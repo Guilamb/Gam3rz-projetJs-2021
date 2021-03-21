@@ -1,3 +1,7 @@
+body {
+    color: white;
+}
+
 header {
     border-bottom: 10px dotted;
     background-color: white;
@@ -70,7 +74,7 @@ div#video img {
 }
 
 div#description {
-   padding: 40px 0 40px 0;
+    padding: 40px 0 40px 0;
     border-block-end: 5px solid;
 }
 
@@ -138,11 +142,20 @@ div#genres li {
     0% {
         border-color: red;
     }
-    33% {
+    17% {
+        border-color: yellow;
+    }
+    33%{
         border-color: green;
+    }
+    50%{
+        border-color: cyan;
     }
     66% {
         border-color: blue;
+    }
+    83%{
+        border-color: magenta;
     }
     100% {
         border-color: red;
@@ -153,11 +166,20 @@ div#genres li {
     0% {
         background-color: red;
     }
-    33% {
+    17% {
+        background-color: yellow;
+    }
+    33%{
         background-color: green;
+    }
+    50%{
+        background-color: cyan;
     }
     66% {
         background-color: blue;
+    }
+    83%{
+        background-color: magenta;
     }
     100% {
         background-color: red;

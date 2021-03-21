@@ -29,14 +29,19 @@ export default class Requete {
 			})
 			.then(() => {
 				document
-					.querySelectorAll('.col3.gameCard' /*'.flip-card-inner'*/)
+					.querySelectorAll('.gameCard' /*'.flip-card-inner'*/)
 					.forEach((el, index) => {
-						el.querySelector('#gameCard-button-favorite').addEventListener(
-							'click',
-							function (event) {
-								event.preventDefault();
-								//faut trouver une autre alternative
-								/*const imageFavoris = el.querySelector('.flip-card-back .fav');
+						const button_favorite = el.querySelector(
+							'#gameCard-button-favorite'
+						);
+						button_favorite.addEventListener('click', function (event) {
+							event.preventDefault();
+
+							button_favorite
+								.querySelector('img')
+								.setAttribute('src', 'images/fav-clicked.png');
+							//faut trouver une autre alternative
+							/*const imageFavoris = el.querySelector('.flip-card-back .fav');
 
 								if (!imageFavoris.classList.contains('click')) {
 									imageFavoris.setAttribute(
@@ -44,17 +49,17 @@ export default class Requete {
 										'./images/star-fav-clicked.png'
 									);
 									imageFavoris.classList.add('click');*/
-								const whatIsInLocalStorage = localStorage.getItem('favoris');
-								if (whatIsInLocalStorage != null) {
-									listeFavoris = JSON.parse(whatIsInLocalStorage);
-								}
+							const whatIsInLocalStorage = localStorage.getItem('favoris');
+							if (whatIsInLocalStorage != null) {
+								listeFavoris = JSON.parse(whatIsInLocalStorage);
+							}
 
-								listeFavoris.push(jeux[index]);
-								console.log(listeFavoris);
-								console.log(jeux[index]);
+							listeFavoris.push(jeux[index]);
+							console.log(listeFavoris);
+							console.log(jeux[index]);
 
-								localStorage.setItem('favoris', JSON.stringify(listeFavoris));
-								/*
+							localStorage.setItem('favoris', JSON.stringify(listeFavoris));
+							/*
 									el.querySelector('.flip-card-front > .fav').setAttribute(
 										'src',
 										'./images/star-fav-clicked.png'
@@ -72,8 +77,7 @@ export default class Requete {
 										'visibility:hidden;'
 									);
 								}*/
-							}
-						);
+						});
 					});
 
 				document
@@ -90,6 +94,13 @@ export default class Requete {
 							true
 						);
 					});
+
+				document.querySelectorAll('.detail').forEach(link => {
+					link.addEventListener('click', event => {
+						event.preventDefault();
+						Router.navigate(link.getAttribute('href'));
+					});
+				});
 
 				if (!this.initTri) {
 					this.initSortingList(page);
@@ -127,8 +138,6 @@ export default class Requete {
 	}
 
 	static initSortingList(page) {
-		console.log('initTri');
-
 		const tri = document.querySelectorAll('.tri-item');
 		tri[0].addEventListener('click', event => {
 			event.preventDefault();
@@ -156,7 +165,6 @@ export default class Requete {
 	}
 
 	static genreList(page) {
-		console.log('initGenre');
 		let genreItems = [];
 		let i = 0;
 

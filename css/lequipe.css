@@ -1,0 +1,52 @@
+.member{
+    max-width: 350px;
+    background-color: white;
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 5px;
+    border: 8px solid;
+    animation: border-rgb 5s linear 0s infinite;
+}
+
+img{
+    width: 100%;
+    height: 200px;
+}
+
+h6{
+    color: black;
+}
+
+a{
+    color: royalblue;
+}
+
+.member > h6 > a:hover{
+    background-image: linear-gradient(to left, magenta, blue,cyan, green, yellow, red);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@keyframes border-rgb {
+    0% {
+        border-color: red;
+    }
+    17% {
+        border-color: yellow;
+    }
+    33%{
+        border-color: green;
+    }
+    50%{
+        border-color: cyan;
+    }
+    66% {
+        border-color: blue;
+    }
+    83%{
+        border-color: magenta;
+    }
+    100% {
+        border-color: red;
+    }
+}

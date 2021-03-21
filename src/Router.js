@@ -48,13 +48,7 @@ export default class Router {
 
 			this.contentElement.innerHTML = route.page.render();
 			route.page.mount?.(this.contentElement);
-
-			document.querySelectorAll('.wrapper a').forEach(link => {
-				link.addEventListener('click', event => {
-					event.preventDefault();
-					Router.navigate(link.getAttribute('href'), true);
-				});
-			});
+			route.page.initlinks?.();
 
 			if (pageDetails) {
 				Requete.gameDetails(

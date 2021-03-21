@@ -30,7 +30,7 @@ export default class Details extends Page {
 		let data = this.#jeu;
 		let gameImages = this.#screenshots;
 
-		if (!data && !gameImages) return 'Chargement en cours';
+		if (!data || !gameImages) return 'Chargement en cours';
 
 		const video = data.clip
 			? `<video controls="controls" onloadstart="this.volume=0"> <source src="${data.clip.clip}"/> </video>`
