@@ -35,6 +35,9 @@ export default class favoris extends Page {
 	render() {
 		const listeFavorisTemp = localStorage.getItem('favoris');
 		const listeFavoris = JSON.parse(listeFavorisTemp);
+
+		if (!listeFavoris) return `<h1> Tu n'as pas de favoris </h1>`;
+
 		let finalHtml = `<link rel="stylesheet" type="text/css" href="css/gameCard.css">
 						<div class="row align-items-start">`;
 		listeFavoris.forEach(element => {

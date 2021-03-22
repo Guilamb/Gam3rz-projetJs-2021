@@ -5,19 +5,6 @@ import Lequipe from './pages/lequipe';
 import Requete from './components/request';
 import Details from './pages/details';
 
-function scrolled(o) {
-	console.log(
-		$(window).innerHeight() + $(window).scrollTop() + ' : ' + $('body').height()
-	);
-	if (
-		Math.round($(window).innerHeight() + $(window).scrollTop()) ==
-		$('body').height()
-	) {
-		alert('End');
-		Requete.LoadMoreGames(this);
-	}
-}
-
 const details = new Details();
 
 const jeuList = new JeuList([]);
