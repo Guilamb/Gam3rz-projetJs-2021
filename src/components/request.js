@@ -37,7 +37,14 @@ export default class Requete {
 						let cliqued = false;
 						button_favorite.addEventListener('click', function (event) {
 							event.preventDefault();
-							cliqued = !cliqued;
+							if (
+								button_favorite.querySelector('img').getAttribute('src') ==
+								'images/fav-clicked.png'
+							) {
+								cliqued = false;
+							} else {
+								cliqued = true;
+							}
 							const whatIsInLocalStorage = localStorage.getItem('favoris');
 
 							if (cliqued) {

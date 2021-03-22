@@ -30,6 +30,7 @@ export default class jeuList extends Page {
 
 	render() {
 		let data = this.#jeux;
+		const listeFavoris = JSON.parse(localStorage.getItem('favoris'));
 		if (!data) return '<h1> Chargement en cours ... </h1>';
 
 		if (data.length === 0)
@@ -43,9 +44,18 @@ export default class jeuList extends Page {
 				<div class="col3 gameCard">
 				<div class="gameCard-header">
 					<h1 class="gameCard-title"> ${jeu.name} </h1>
-					<button id="gameCard-button-favorite"> 
-						<img class='favori' src="images/fav.png" alt="Bouton favori" width="50px" height="50px">
-					</button>
+					<button id="gameCard-button-favorite"> `;
+
+			if (
+				listeFavoris != null &&
+				listeFavoris.some(item => item.name == jeu.name)
+			) {
+				html += `<img class='favori' src="images/fav-clicked.png" alt="Bouton favori" width="50px" height="50px">`;
+			} else {
+				html += `<img class='favori' src="images/fav.png" alt="Bouton favori" width="50px" height="50px">`;
+			}
+
+			html += `</button>
 				</div>
 				<a class="detail" href="details-${jeu.slug}">
 				<div class="gameCard-body">
