@@ -227,16 +227,11 @@ export default class Requete {
 			'scroll',
 			function () {
 				//event.preventDefault();
-				console.log(
-					Math.round($(window).innerHeight() + $(window).scrollTop()) +
-						' : ' +
-						$('body').height()
-				);
 				if (
 					Math.round($(window).innerHeight() + $(window).scrollTop()) ==
-					$('body').height()
+						$('body').height() &&
+					page.element.baseURI == 'http://localhost:8080/'
 				) {
-					alert('End');
 					Requete.gameList(
 						page,
 						`https://api.rawg.io/api/games?page=${
