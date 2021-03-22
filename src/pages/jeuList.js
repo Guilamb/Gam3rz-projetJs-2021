@@ -1,7 +1,5 @@
 import Page from './Page';
-import jeuThumbnail from '../components/jeuThumbnail';
 import Requete from '../components/request';
-import { format } from 'prettier';
 
 export default class jeuList extends Page {
 	#jeux;
@@ -13,12 +11,11 @@ export default class jeuList extends Page {
 
 	set jeux(value) {
 		this.#jeux = value;
-
-		// this.children = this.#jeux.map(jeu => new jeuThumbnail(jeu));
 	}
 
 	mount(element) {
 		super.mount(element);
+
 		Requete.gameList(
 			this,
 			`https://api.rawg.io/api/games?page_size=20&dates=2020-01-01,2021-12-31&metacritic=50,100`
@@ -33,10 +30,13 @@ export default class jeuList extends Page {
 
 	render() {
 		let data = this.#jeux;
-		if (!data) return 'Chargement en cours ...';
+		if (!data) return '<h1> Chargement en cours ... </h1>';
+
+		if (data.length === 0)
+			return `<h1>Il n'y a pas de jeu correspondant à la recherche !</h1>`;
 
 		let html = `<link rel="stylesheet" type="text/css" href="css/gameCard.css">
-			 <div class="row align-items-start" onscroll="scrolled(this)">`;
+			 <div class="row align-items-start">`;
 
 		data.forEach(jeu => {
 			html += `
@@ -60,8 +60,7 @@ export default class jeuList extends Page {
 			`;
 		});
 
-		html += `</div> 
-        <button class="moreGames"> REMPLACER LE BOUTON PAR UN SCROLL EVENT </button>`;
+		html += `</div>`;
 
 		return html;
 	}

@@ -93,20 +93,20 @@ export default class Requete {
 						});
 					});
 
-				document
-					.querySelector('.moreGames')
-					.addEventListener('click', event => {
-						event.preventDefault();
-						Requete.gameList(
-							page,
-							`https://api.rawg.io/api/games?page=${
-								Requete.numPage
-							}&page_size=20&dates=2020-01-01,2021-12-31&metacritic=50,100${
-								Requete.order
-							}${Requete.genreOption}${Requete.genres.toString()}`,
-							true
-						);
-					});
+				// document
+				// 	.querySelector('.moreGames')
+				// 	.addEventListener('click', event => {
+				// 		event.preventDefault();
+				// 		Requete.gameList(
+				// 			page,
+				// 			`https://api.rawg.io/api/games?page=${
+				// 				Requete.numPage
+				// 			}&page_size=20&dates=2020-01-01,2021-12-31&metacritic=50,100${
+				// 				Requete.order
+				// 			}${Requete.genreOption}${Requete.genres.toString()}`,
+				// 			true
+				// 		);
+				// 	});
 
 				document.querySelectorAll('.detail').forEach(link => {
 					link.addEventListener('click', event => {

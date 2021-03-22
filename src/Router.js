@@ -44,6 +44,7 @@ export default class Router {
 		}
 		if (route) {
 			// this.titleElement.innerHTML = `<h1>${route.title}</h1>`;
+
 			if (this.previousPage) this.previousPage.unmount?.();
 
 			this.contentElement.innerHTML = route.page.render();
