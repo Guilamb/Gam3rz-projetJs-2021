@@ -34,12 +34,35 @@ export default class Requete {
 						const button_favorite = el.querySelector(
 							'#gameCard-button-favorite'
 						);
+						let cliqued = false;
 						button_favorite.addEventListener('click', function (event) {
 							event.preventDefault();
+							cliqued = !cliqued;
+							const whatIsInLocalStorage = localStorage.getItem('favoris');
 
-							button_favorite
-								.querySelector('img')
-								.setAttribute('src', 'images/fav-clicked.png');
+							if (cliqued) {
+								console.log('ajout');
+								button_favorite
+									.querySelector('img')
+									.setAttribute('src', 'images/fav-clicked.png');
+
+								if (whatIsInLocalStorage != null) {
+									listeFavoris = JSON.parse(whatIsInLocalStorage);
+								}
+
+								listeFavoris.push(jeux[index]);
+
+								localStorage.setItem('favoris', JSON.stringify(listeFavoris));
+							} else {
+								console.log('retrait');
+								button_favorite
+									.querySelector('img')
+									.setAttribute('src', 'images/fav.png');
+								listeFavoris.splice(listeFavoris.indexOf(jeux[index]), 1);
+								localStorage.removeItem('favoris');
+								localStorage.setItem('favoris', JSON.stringify(listeFavoris));
+							}
+
 							//faut trouver une autre alternative
 							/*const imageFavoris = el.querySelector('.flip-card-back .fav');
 
@@ -49,16 +72,7 @@ export default class Requete {
 										'./images/star-fav-clicked.png'
 									);
 									imageFavoris.classList.add('click');*/
-							const whatIsInLocalStorage = localStorage.getItem('favoris');
-							if (whatIsInLocalStorage != null) {
-								listeFavoris = JSON.parse(whatIsInLocalStorage);
-							}
 
-							listeFavoris.push(jeux[index]);
-							console.log(listeFavoris);
-							console.log(jeux[index]);
-
-							localStorage.setItem('favoris', JSON.stringify(listeFavoris));
 							/*
 									el.querySelector('.flip-card-front > .fav').setAttribute(
 										'src',
@@ -70,8 +84,7 @@ export default class Requete {
 								} else {
 									imageFavoris.setAttribute('src', './images/star-fav.png');
 									imageFavoris.classList.remove('click');
-									localStorage.removeItem('favoris');
-									localStorage.setItem('favoris', listeFavoris);
+									
 									el.querySelector('.flip-card-front > .fav').setAttribute(
 										'style',
 										'visibility:hidden;'
