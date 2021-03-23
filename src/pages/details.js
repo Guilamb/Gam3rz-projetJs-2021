@@ -62,15 +62,10 @@ export default class Details extends Page {
 			<div id="title">
 				<h1 class="name"> ${data.name} </h1>
 				<h1 class="note"> ${data.metacritic} </h1>
-				<button id="gameCard-button-favorite"> `;
-		if (
-			listeFavoris != null &&
-			listeFavoris.some(item => item?.name == data.name)
-		) {
-			html += `<img class='favori' src="images/fav-clicked.png" alt="Bouton favori" width="50px" height="50px">`;
-		} else {
-			html += `<img class='favori' src="images/fav.png" alt="Bouton favori" width="50px" height="50px">`;
-		}
+				
+	
+		</div>`;
+
 		html += `</div>
 			<br>
 			<div id="presentation">
@@ -112,9 +107,16 @@ export default class Details extends Page {
 			</div>
 			<br>
 			<div>
-				<button id="gameCard-button-favorite">
-					<img class='favori' src="images/fav.png" alt="Bouton favori" width="50px" height="50px">
-				</button>
+				<button id="gameCard-button-favorite">`;
+		if (
+			listeFavoris != null &&
+			listeFavoris.some(item => item.name == data.name)
+		) {
+			html += `<img class='favori' src="images/fav-clicked.png" alt="Bouton favori" width="50px" height="50px">`;
+		} else {
+			html += `<img class='favori' src="images/fav.png" alt="Bouton favori" width="50px" height="50px">`;
+		}
+		html += `</button>
 			</div>
 		</div>
 		`;
