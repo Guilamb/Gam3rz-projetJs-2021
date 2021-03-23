@@ -24,11 +24,12 @@ export default class Requete {
 				jeux = data.results;
 			})
 			.then(() => {
-				if (!add) {
-					page.element.innerHTML = page.render();
-				} else {
-					page.element.innerHTML += page.render();
-				}
+				if (page.element)
+					if (!add) {
+						page.element.innerHTML = page.render();
+					} else {
+						page.element.innerHTML += page.render();
+					}
 			})
 			.then(() => {
 				document
