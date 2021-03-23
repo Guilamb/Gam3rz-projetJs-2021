@@ -37,7 +37,7 @@ export default class Requete {
 						const button_favorite = el.querySelector(
 							'#gameCard-button-favorite'
 						);
-						let cliqued = false;
+						let cliqued;
 						button_favorite.addEventListener('click', function (event) {
 							event.preventDefault();
 							if (
@@ -51,6 +51,7 @@ export default class Requete {
 							const whatIsInLocalStorage = localStorage.getItem('favoris');
 
 							if (cliqued) {
+								console.log('ajout');
 								button_favorite
 									.querySelector('img')
 									.setAttribute('src', 'images/fav-clicked.png');
@@ -63,10 +64,16 @@ export default class Requete {
 
 								localStorage.setItem('favoris', JSON.stringify(listeFavoris));
 							} else {
+								console.log('retrait');
 								button_favorite
 									.querySelector('img')
 									.setAttribute('src', 'images/fav.png');
-								listeFavoris.splice(listeFavoris.indexOf(jeux[index]), 1);
+
+								if (whatIsInLocalStorage != null) {
+									listeFavoris = JSON.parse(whatIsInLocalStorage);
+								}
+								listeFavoris.splice(listeFavoris.indexOf(jeux[index]) - 1, 1);
+								console.log(listeFavoris);
 								localStorage.removeItem('favoris');
 								localStorage.setItem('favoris', JSON.stringify(listeFavoris));
 							}

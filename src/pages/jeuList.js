@@ -54,9 +54,7 @@ export default class jeuList extends Page {
 			} else {
 				html += `<img class='favori' src="images/fav.png" alt="Bouton favori" width="50px" height="50px">`;
 			}
-
-			html += `</button>
-				</div>
+			html += `	</div>
 				<a class="detail" href="detail-${jeu.slug}">
 				<div class="gameCard-body">
 					<img src="${jeu.background_image}" alt="Image de ${jeu.name}" width=300 height=200>
