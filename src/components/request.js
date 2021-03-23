@@ -103,12 +103,26 @@ export default class Requete {
 			})
 			.then(() => {
 				this.gameScreenshots(page, `${url}/screenshots`);
+			});
+	}
+
+	static gameScreenshots(page, url) {
+		let listeFavoris = [];
+		url += '?key=dd152cced88e43fabd8ff4e4395448a9';
+		fetch(url)
+			.then(response => response.json())
+			.then(data => {
+				page.screenshots = data.results;
 			})
 			.then(() => {
-				console.log(document);
+				page.element.innerHTML = page.render();
+			})
+			.then(() => {
+				console.log(page);
 				const button_favorite = document.querySelector(
 					'#gameCard-button-favorite'
 				);
+				let jeux = page.jeux;
 				let cliqued = false;
 				button_favorite.addEventListener('click', function (event) {
 					event.preventDefault();
@@ -161,18 +175,6 @@ export default class Requete {
 						localStorage.setItem('favoris', JSON.stringify(listeFavoris));
 					}
 				});
-			});
-	}
-
-	static gameScreenshots(page, url) {
-		url += '?key=dd152cced88e43fabd8ff4e4395448a9';
-		fetch(url)
-			.then(response => response.json())
-			.then(data => {
-				page.screenshots = data.results;
-			})
-			.then(() => {
-				page.element.innerHTML = page.render();
 			});
 	}
 
