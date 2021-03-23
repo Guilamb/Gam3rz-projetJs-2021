@@ -106,9 +106,21 @@ export default class Requete {
 			})
 			.then(() => {
 				console.log(document);
-				const button_favorite = document.querySelector('.favoris');
+				const button_favorite = document.querySelector(
+					'#gameCard-button-favorite'
+				);
+				let cliqued = false;
 				button_favorite.addEventListener('click', function (event) {
 					event.preventDefault();
+					const whatIsInLocalStorage = localStorage.getItem('favoris');
+					if (whatIsInLocalStorage != null) {
+						listeFavoris = JSON.parse(whatIsInLocalStorage);
+					}
+					/*listeFavoris.forEach(game => {
+						if (game.name == page.jeu.name) {
+							cliqued = true;
+						}
+					});*/
 					if (
 						button_favorite.querySelector('img').getAttribute('src') ==
 						'images/fav-clicked.png'
@@ -117,17 +129,12 @@ export default class Requete {
 					} else {
 						cliqued = true;
 					}
-					const whatIsInLocalStorage = localStorage.getItem('favoris');
 
 					if (cliqued) {
 						console.log('ajout');
 						button_favorite
 							.querySelector('img')
 							.setAttribute('src', 'images/fav-clicked.png');
-
-						if (whatIsInLocalStorage != null) {
-							listeFavoris = JSON.parse(whatIsInLocalStorage);
-						}
 
 						listeFavoris.push(jeux[index]);
 
