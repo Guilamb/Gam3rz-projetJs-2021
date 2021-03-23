@@ -7,6 +7,7 @@ export default class Requete {
 	static order = '';
 	static genres = [];
 	static genreOption = '';
+	static moreGamesAdded = false;
 	static initTri = false;
 	static initGenre = false;
 
@@ -100,21 +101,6 @@ export default class Requete {
 						});
 					});
 
-				// document
-				// 	.querySelector('.moreGames')
-				// 	.addEventListener('click', event => {
-				// 		event.preventDefault();
-				// 		Requete.gameList(
-				// 			page,
-				// 			`https://api.rawg.io/api/games?page=${
-				// 				Requete.numPage
-				// 			}&page_size=20&dates=2020-01-01,2021-12-31&metacritic=50,100${
-				// 				Requete.order
-				// 			}${Requete.genreOption}${Requete.genres.toString()}`,
-				// 			true
-				// 		);
-				// 	});
-
 				document.querySelectorAll('.detail').forEach(link => {
 					link.addEventListener('click', event => {
 						event.preventDefault();
@@ -130,7 +116,7 @@ export default class Requete {
 					this.genreList(page);
 					this.initGenre = true;
 				}
-				this.LoadMoreGames(page);
+				if (!this.moreGamesAdded) this.LoadMoreGames(page);
 			});
 		this.numPage++;
 	}
@@ -230,14 +216,18 @@ export default class Requete {
 	}
 
 	static LoadMoreGames(page) {
+		Requete.moreGamesAdded = true;
 		window.addEventListener(
 			'scroll',
 			function () {
 				//event.preventDefault();
+				const pageUrl = page.element.baseURI;
+				console.log(Requete.moreGamesAdded);
 				if (
-					Math.round($(window).innerHeight() + $(window).scrollTop()) ==
+					Math.round($(window).innerHeight() + $(window).scrollTop()) >=
 						$('body').height() &&
-					page.element.baseURI == 'http://localhost:8080/'
+					pageUrl.slice(21, pageUrl.length) === '/' &&
+					!this.moreGamesAdded
 				) {
 					Requete.gameList(
 						page,
