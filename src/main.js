@@ -4,8 +4,7 @@ import favoris from './pages/favoris';
 import Lequipe from './pages/lequipe';
 import Requete from './components/request';
 import Details from './pages/details';
-
-const details = new Details();
+import errorPage from './pages/errorPage';
 
 const jeuList = new JeuList([]);
 Requete.gameList(
@@ -13,17 +12,14 @@ Requete.gameList(
 	`https://api.rawg.io/api/games?page_size=20&dates=2020-01-01,2021-12-31&metacritic=50,100`
 );
 
-const lequipe = new Lequipe();
-
-const favo = new favoris();
-
 Router.contentElement = document.querySelector('.pageContent');
 Router.menuElement = document.querySelector('.mainMenu');
 Router.routes = [
 	{ path: '/', page: jeuList, title: 'Instant G@M3RZ' },
-	{ path: 'lequipe.fr', page: lequipe, title: 'Instant G@M3RZ' },
-	{ path: 'mes-favoris', page: favo, title: 'Instant G@M3RZ' },
-	{ path: 'detail', page: details, title: 'Instant G@M3RZ' },
+	{ path: 'lequipe.fr', page: new Lequipe(), title: 'Instant G@M3RZ' },
+	{ path: 'mes-favoris', page: new favoris(), title: 'Instant G@M3RZ' },
+	{ path: 'detail', page: new Details(), title: 'Instant G@M3RZ' },
+	{ path: 'error-404', page: new errorPage(), title: 'Instant G@M3RZ' },
 ];
 
 const form = document.querySelector('.d-flex');

@@ -49,21 +49,11 @@ div#presentation {
     border-block-end: 5px solid;
 }
 
-div#presentation div#video {
+div#presentation div#gameImage {
     display: flex;
 }
 
-div#video video {
-    margin: auto;
-    width: 75%;
-    height: 100%;
-    
-    border: 8px solid;
-    border-radius: 50px;
-    animation: border-rgb 8s linear 0s infinite;
-}
-
-div#video img {
+div#gameImage img {
     margin: auto;
     width: 75%;
     height: 100%;
