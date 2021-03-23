@@ -23,8 +23,8 @@ export default class jeuList extends Page {
 	}
 
 	unmount() {
-		console.log('unmount jeuList');
 		this.#jeux = null;
+		Requete.numPage = 1;
 		this.render();
 	}
 

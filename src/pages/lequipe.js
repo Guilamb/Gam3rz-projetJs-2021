@@ -1,6 +1,4 @@
 import Page from './Page';
-import Member from '../components/Member';
-import Component from '../components/Component';
 import Router from '../Router';
 
 export default class Lequipe extends Page {

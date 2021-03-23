@@ -15,6 +15,8 @@ export default class Requete {
 		let listeFavoris = [];
 		let jeux;
 
+		url += '&key=dd152cced88e43fabd8ff4e4395448a9';
+
 		fetch(url)
 			.then(response => response.json())
 			.then(data => {
@@ -49,7 +51,6 @@ export default class Requete {
 							const whatIsInLocalStorage = localStorage.getItem('favoris');
 
 							if (cliqued) {
-								console.log('ajout');
 								button_favorite
 									.querySelector('img')
 									.setAttribute('src', 'images/fav-clicked.png');
@@ -62,7 +63,6 @@ export default class Requete {
 
 								localStorage.setItem('favoris', JSON.stringify(listeFavoris));
 							} else {
-								console.log('retrait');
 								button_favorite
 									.querySelector('img')
 									.setAttribute('src', 'images/fav.png');
@@ -70,34 +70,6 @@ export default class Requete {
 								localStorage.removeItem('favoris');
 								localStorage.setItem('favoris', JSON.stringify(listeFavoris));
 							}
-
-							//faut trouver une autre alternative
-							/*const imageFavoris = el.querySelector('.flip-card-back .fav');
-
-								if (!imageFavoris.classList.contains('click')) {
-									imageFavoris.setAttribute(
-										'src',
-										'./images/star-fav-clicked.png'
-									);
-									imageFavoris.classList.add('click');*/
-
-							/*
-									el.querySelector('.flip-card-front > .fav').setAttribute(
-										'src',
-										'./images/star-fav-clicked.png'
-									);
-									el.querySelector('.flip-card-front > .fav').removeAttribute(
-										'style'
-									);
-								} else {
-									imageFavoris.setAttribute('src', './images/star-fav.png');
-									imageFavoris.classList.remove('click');
-									
-									el.querySelector('.flip-card-front > .fav').setAttribute(
-										'style',
-										'visibility:hidden;'
-									);
-								}*/
 						});
 					});
 
@@ -122,7 +94,8 @@ export default class Requete {
 	}
 
 	static gameDetails(page, url) {
-		fetch(url)
+		let urlDetails = url + '?key=dd152cced88e43fabd8ff4e4395448a9';
+		fetch(urlDetails)
 			.then(response => response.json())
 			.then(data => {
 				page.jeu = data;
@@ -133,6 +106,7 @@ export default class Requete {
 	}
 
 	static gameScreenshots(page, url) {
+		url += '?key=dd152cced88e43fabd8ff4e4395448a9';
 		fetch(url)
 			.then(response => response.json())
 			.then(data => {
@@ -174,7 +148,7 @@ export default class Requete {
 		let genreItems = [];
 		let i = 0;
 
-		fetch('https://api.rawg.io/api/genres')
+		fetch('https://api.rawg.io/api/genres?key=dd152cced88e43fabd8ff4e4395448a9')
 			.then(response => response.json())
 			.then(data => {
 				data.results.forEach(element => {
@@ -220,9 +194,7 @@ export default class Requete {
 		window.addEventListener(
 			'scroll',
 			function () {
-				//event.preventDefault();
 				const pageUrl = page.element.baseURI;
-				console.log(Requete.moreGamesAdded);
 				if (
 					Math.round($(window).innerHeight() + $(window).scrollTop()) >=
 						$('body').height() &&
