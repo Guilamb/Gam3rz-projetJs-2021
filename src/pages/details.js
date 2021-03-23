@@ -64,7 +64,9 @@ export default class Details extends Page {
 				<h1 class="note"> ${data.metacritic} </h1>
 				
 	
-		</div>
+		</div>`;
+
+		html += `</div>
 			<br>
 			<div id="presentation">
 				<h1> <strong> Image du jeu </strong> </h1>

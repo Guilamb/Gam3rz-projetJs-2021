@@ -48,7 +48,7 @@ export default class jeuList extends Page {
 
 			if (
 				listeFavoris != null &&
-				listeFavoris.some(item => item.name == jeu.name)
+				listeFavoris.some(item => item?.name == jeu.name)
 			) {
 				html += `<img class='favori' src="images/fav-clicked.png" alt="Bouton favori" width="50px" height="50px">`;
 			} else {
