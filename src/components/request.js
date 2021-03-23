@@ -25,11 +25,12 @@ export default class Requete {
 				jeux = data.results;
 			})
 			.then(() => {
-				if (!add) {
-					page.element.innerHTML = page.render();
-				} else {
-					page.element.innerHTML += page.render();
-				}
+				if (page.element)
+					if (!add) {
+						page.element.innerHTML = page.render();
+					} else {
+						page.element.innerHTML += page.render();
+					}
 			})
 			.then(() => {
 				document
@@ -38,6 +39,7 @@ export default class Requete {
 						const button_favorite = el.querySelector(
 							'#gameCard-button-favorite'
 						);
+						console.log;
 						let cliqued = false;
 						button_favorite.addEventListener('click', function (event) {
 							event.preventDefault();
@@ -255,11 +257,11 @@ export default class Requete {
 		window.addEventListener(
 			'scroll',
 			function () {
-				const pageUrl = page.element.baseURI;
+				const pageUrl = page.element?.baseURI;
 				if (
 					Math.round($(window).innerHeight() + $(window).scrollTop()) >=
 						$('body').height() &&
-					pageUrl.slice(21, pageUrl.length) === '/' &&
+					pageUrl?.slice(21, pageUrl.length) === '/' &&
 					!this.moreGamesAdded
 				) {
 					Requete.gameList(

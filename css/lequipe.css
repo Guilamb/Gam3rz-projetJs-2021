@@ -19,10 +19,13 @@ h6{
 
 a{
     color: royalblue;
+    text-decoration: none;
+    font-weight: bold;
 }
 
 .member > h6 > a:hover{
     background-image: linear-gradient(to left, magenta, blue,cyan, green, yellow, red);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }

@@ -1,7 +1,7 @@
 # Lancement du projet :
 **npm install**
 
-**npm run watch **
+**npm run watch**
 
 **npx serve -s -l port**
 

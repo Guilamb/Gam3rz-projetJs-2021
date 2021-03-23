@@ -72,7 +72,7 @@ export default class Router {
 					element.getAttribute('class') + ' d-none'
 				);
 			});
-			document.querySelector('.d-flex').setAttribute('class', 'd-none');
+			document.querySelector('.d-flex')?.setAttribute('class', 'd-none');
 		} else {
 			document.querySelectorAll('.dropdownMenu').forEach(element => {
 				element.setAttribute('class', 'nav-item dropdownMenu');
