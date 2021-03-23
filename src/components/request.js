@@ -69,7 +69,18 @@ export default class Requete {
 								button_favorite
 									.querySelector('img')
 									.setAttribute('src', 'images/fav.png');
-								listeFavoris.splice(listeFavoris.indexOf(jeux[index]), 1);
+								if (whatIsInLocalStorage != null) {
+									listeFavoris = JSON.parse(whatIsInLocalStorage);
+								}
+								let myIndex = 0;
+								let i = 0;
+								listeFavoris.forEach(game => {
+									if (game.name == jeux[index].name) {
+										myIndex = i;
+									}
+									i++;
+								});
+								listeFavoris.splice(myIndex, 1);
 								localStorage.removeItem('favoris');
 								localStorage.setItem('favoris', JSON.stringify(listeFavoris));
 							}
