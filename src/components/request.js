@@ -72,8 +72,15 @@ export default class Requete {
 								if (whatIsInLocalStorage != null) {
 									listeFavoris = JSON.parse(whatIsInLocalStorage);
 								}
-								listeFavoris.splice(listeFavoris.indexOf(jeux[index]) - 1, 1);
-								console.log(listeFavoris);
+								let myIndex = 0;
+								let i = 0;
+								listeFavoris.forEach(game => {
+									if (game.name == jeux[index].name) {
+										myIndex = i;
+									}
+									i++;
+								});
+								listeFavoris.splice(myIndex, 1);
 								localStorage.removeItem('favoris');
 								localStorage.setItem('favoris', JSON.stringify(listeFavoris));
 							}
