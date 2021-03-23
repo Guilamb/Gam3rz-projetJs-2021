@@ -39,6 +39,7 @@ export default class Requete {
 						const button_favorite = el.querySelector(
 							'#gameCard-button-favorite'
 						);
+						console.log;
 						let cliqued = false;
 						button_favorite.addEventListener('click', function (event) {
 							event.preventDefault();
@@ -104,6 +105,18 @@ export default class Requete {
 			})
 			.then(() => {
 				this.gameScreenshots(page, `${url}/screenshots`);
+			});
+	}
+
+	static gameScreenshots(page, url) {
+		url += '?key=dd152cced88e43fabd8ff4e4395448a9';
+		fetch(url)
+			.then(response => response.json())
+			.then(data => {
+				page.screenshots = data.results;
+			})
+			.then(() => {
+				page.element.innerHTML = page.render();
 			})
 			.then(() => {
 				console.log(document);
@@ -162,18 +175,6 @@ export default class Requete {
 						localStorage.setItem('favoris', JSON.stringify(listeFavoris));
 					}
 				});
-			});
-	}
-
-	static gameScreenshots(page, url) {
-		url += '?key=dd152cced88e43fabd8ff4e4395448a9';
-		fetch(url)
-			.then(response => response.json())
-			.then(data => {
-				page.screenshots = data.results;
-			})
-			.then(() => {
-				page.element.innerHTML = page.render();
 			});
 	}
 
@@ -254,11 +255,11 @@ export default class Requete {
 		window.addEventListener(
 			'scroll',
 			function () {
-				const pageUrl = page.element.baseURI;
+				const pageUrl = page.element?.baseURI;
 				if (
 					Math.round($(window).innerHeight() + $(window).scrollTop()) >=
 						$('body').height() &&
-					pageUrl.slice(21, pageUrl.length) === '/' &&
+					pageUrl?.slice(21, pageUrl.length) === '/' &&
 					!this.moreGamesAdded
 				) {
 					Requete.gameList(
