@@ -59,7 +59,11 @@ export default class jeuList extends Page {
 				</div>
 				<a class="detail" href="detail-${jeu.slug}">
 				<div class="gameCard-body">
-					<img src="${jeu.background_image}" alt="Image de ${jeu.name}" width=300 height=200>
+					<img src="${
+						jeu.background_image
+							? jeu.background_image
+							: 'https://img.huffingtonpost.com/asset/5c9385a22300004b00aed32e.gif?ops=scalefit_630_noupscale'
+					}" alt="Image de ${jeu.name}" width=300 height=200>
 				</div>
 				<div class="gameCard-footer">
 					<h6 id="timestamp">${jeu.released}</h6>

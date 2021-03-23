@@ -32,12 +32,6 @@ export default class Details extends Page {
 
 		if (!data || !gameImages) return 'Chargement en cours';
 
-		console.log(data.clip);
-
-		const video = data.clip
-			? `<video controls="controls" onloadstart="this.volume=0"> <source src="${data.clip.clip}"/> </video>`
-			: `<img src='https://freefrontend.com/assets/img/html-funny-404-pages/HTML-404-Error-Page.gif'>`;
-
 		let images = '';
 		gameImages.forEach(image => {
 			images += `
@@ -46,7 +40,7 @@ export default class Details extends Page {
 			</a>
 			`;
 		});
-		if (images === '') images = `<h2> Aucune image n'a été trouvée :( </h2>`;
+		if (images === '') images = `<h2> Aucunes images disponibles :( </h2>`;
 
 		let plateformes = '<ul>';
 		data.platforms.forEach(plateforme => {
@@ -72,8 +66,12 @@ export default class Details extends Page {
 			<div id="presentation">
 				<h1> <strong> Image du jeu </strong> </h1>
 				<br>
-				<div id="video">
-					<img src="${data.background_image}">
+				<div id="gameImage">
+					<img src="${
+						data.background_image
+							? data.background_image
+							: 'https://freefrontend.com/assets/img/html-funny-404-pages/HTML-404-Error-Page.gif'
+					}">
 				</div>
 			</div>
 			<br>

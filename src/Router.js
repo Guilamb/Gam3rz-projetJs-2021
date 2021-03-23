@@ -40,6 +40,7 @@ export default class Router {
 			pageDetails = true;
 		} else {
 			route = this.routes.find(route => route.path === path);
+			if (!route) route = this.routes.find(route => route.path === 'error-404');
 			pageDetails = false;
 		}
 		if (route) {
