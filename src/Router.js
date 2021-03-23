@@ -35,8 +35,8 @@ export default class Router {
 
 		let pageDetails;
 
-		if (path.includes('details')) {
-			route = this.routes.find(route => route.path === 'details');
+		if (path.includes('detail')) {
+			route = this.routes.find(route => route.path === 'detail');
 			pageDetails = true;
 		} else {
 			route = this.routes.find(route => route.path === path);
@@ -54,7 +54,7 @@ export default class Router {
 			if (pageDetails) {
 				Requete.gameDetails(
 					route.page,
-					`https://api.rawg.io/api/games/${path.substr(8, path.length)}`
+					`https://api.rawg.io/api/games/${path.substr(7, path.length)}`
 				);
 			}
 

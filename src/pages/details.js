@@ -41,7 +41,9 @@ export default class Details extends Page {
 		let images = '';
 		gameImages.forEach(image => {
 			images += `
-			<img class='screenshot' src='${image.image}' alt>
+			<a href="${image.image}">
+				<img class='screenshot' src='${image.image}' alt>
+			</a>
 			`;
 		});
 		if (images === '') images = `<h2> Aucune image n'a été trouvée :( </h2>`;
@@ -68,14 +70,14 @@ export default class Details extends Page {
 			</div>
 			<br>
 			<div id="presentation">
-				<h1> <strong> Vidéo de présentation </strong> </h1>
+				<h1> <strong> Image du jeu </strong> </h1>
 				<br>
 				<div id="video">
-					${video}
+					<img src="${data.background_image}">
 				</div>
 			</div>
 			<br>
-			<div id="description">
+			<div id="description"">
 				<h1> <strong> Description du jeu </strong> </h1>
 				<br>
 				${data.description}
@@ -102,7 +104,9 @@ export default class Details extends Page {
 			</div>
 			<br>
 			<div>
-				TODO FAVORI
+				<button id="gameCard-button-favorite">
+					<img class='favori' src="images/fav.png" alt="Bouton favori" width="50px" height="50px">
+				</button>
 			</div>
 		</div>
 		`;

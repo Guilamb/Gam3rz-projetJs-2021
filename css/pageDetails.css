@@ -138,6 +138,15 @@ div#genres li {
     color: white;
 }
 
+#gameCard-button-favorite {
+    background-color: transparent;
+    border: transparent;
+
+    position: fixed;
+    right: 1%;
+    bottom: 1rem;
+}
+
 @keyframes border-rgb {
     0% {
         border-color: red;

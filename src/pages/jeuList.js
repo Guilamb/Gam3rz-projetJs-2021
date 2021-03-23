@@ -57,7 +57,7 @@ export default class jeuList extends Page {
 
 			html += `</button>
 				</div>
-				<a class="detail" href="details-${jeu.slug}">
+				<a class="detail" href="detail-${jeu.slug}">
 				<div class="gameCard-body">
 					<img src="${jeu.background_image}" alt="Image de ${jeu.name}" width=300 height=200>
 				</div>
